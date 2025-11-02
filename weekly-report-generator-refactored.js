@@ -712,7 +712,7 @@ function generateConciseGlossary(data, avgOfficialResponseTime) {
 
     const answerRate = totalTopics > 0 ? Math.round((topicsAnswered / totalTopics) * 100) : 0;
     glossary += `*Answer Rate:* ${answerRate}% = ${topicsAnswered}/${totalTopics} topics answered by Support team + Support-Finn (AI)\n`;
-    glossary += `*Human vs AI:* ${topicsOfficiallyAnswered} human responses (Luis/Pedro), ${topicsSupportAIAnswered} Support-Finn (AI) responses\n`;
+    glossary += `*Human vs AI:* ${topicsOfficiallyAnswered} human responses (Luis/Pedro/Jesse), ${topicsSupportAIAnswered} Support-Finn (AI) responses\n`;
     glossary += `*SLA Target:* ${CONSTANTS.SLA_HOURS}h weekdays, ${CONSTANTS.WEEKEND_SLA_HOURS}h weekends\n`;
     glossary += `*Symbols:* ⏳ awaiting | ✅ human answered | 🤖 Support-Finn (AI)\n`;
 
@@ -748,7 +748,7 @@ function generateSlackReport(data, weekRange, avgOfficialResponseTime, clusters)
 
     // Overview
     report += `*OVERVIEW*\n`;
-    report += `_Weekly metrics for official support team (Support-Luis, Support-Pedro) + Support-Finn (AI)._\n`;
+    report += `_Weekly metrics for official support team (Support-Luis, Support-Pedro, Jesse) + Support-Finn (AI)._\n`;
     report += `• Total Topics: *${totalTopics}*\n`;
     report += `• Topics Answered: *${topicsAnswered}* | Unanswered: *${unanswered}*\n`;
     report += `• Answer Rate: *${answerRate}%* ${answerRate >= 70 ? '✅' : answerRate >= 50 ? '⚠️' : '❌'}\n`;
