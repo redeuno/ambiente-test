@@ -19,7 +19,7 @@ const CONFIG = {
     // ✅ HYBRID SUPPORT DETECTION (Best of both)
     SUPPORT_DETECTION: {
         // Standard support users for most products
-        STANDARD_SUPPORT: ['Support-Finn', 'Support-Luis', 'Support-Pedro'],
+        STANDARD_SUPPORT: ['Support-Finn', 'Support-Luis', 'Support-Pedro', 'jesse.muiruri'],
 
         // Wized-specific configuration
         WIZED_CATEGORY_ID: 22,
