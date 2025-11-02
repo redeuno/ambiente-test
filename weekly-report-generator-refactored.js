@@ -9,7 +9,7 @@ const CONSTANTS = {
     MAX_SUMMARY_LENGTH: 85,
     PREVIEW_LENGTH: 50,
     SUPPORT_STAFF: {
-        HUMAN: ['Support-Luis', 'Support-Pedro'],
+        HUMAN: ['Support-Luis', 'Support-Pedro', 'jesse.muiruri'],
         AI: ['Support-Finn']
     }
 };
