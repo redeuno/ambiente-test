@@ -1,0 +1,63 @@
+{
+  "name": "@mantovani.bruno/n8n-nodes-imobzi-new",
+  "version": "1.2.4",
+  "description": "Nodes para integração com a API da Imobzi no n8n - Atualizado para nova API (api.imobzi.app)",
+  "keywords": [
+    "n8n-community-node-package",
+    "imobzi",
+    "real-estate",
+    "crm"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/redeuno/imobzi-new",
+  "author": {
+    "name": "Bruno Mantovani",
+    "email": "mantovani.bruno@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redeuno/imobzi-new.git"
+  },
+  "engines": {
+    "node": ">=20.15"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "npx rimraf dist && tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+  },
+  "files": [
+    "dist",
+    "index.js"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/ImobziApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/ImobziSimples/ImobziSimples.node.js",
+      "dist/nodes/Imobzi/Imobzi.node.js",
+      "dist/nodes/ImobziWebhook/ImobziWebhook.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/parser": "~8.32.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "gulp": "^5.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "uuid": "^11.1.0"
+  }
+}
