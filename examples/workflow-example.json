@@ -1,0 +1,139 @@
+{
+  "name": "Imobzi Integration Example",
+  "nodes": [
+    {
+      "parameters": {
+        "events": ["lead.created"],
+        "includeFullData": true
+      },
+      "id": "webhook-trigger",
+      "name": "Imobzi Webhook",
+      "type": "n8n-nodes-imobzi.imobziWebhook",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "resource": "lead",
+        "operation": "create",
+        "name": "={{ $json.data.name }}",
+        "email": "={{ $json.data.email }}",
+        "phone": "={{ $json.data.phone }}"
+      },
+      "id": "create-lead",
+      "name": "Create Lead",
+      "type": "n8n-nodes-imobzi.imobzi",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "resource": "property",
+        "operation": "getAll"
+      },
+      "id": "get-properties",
+      "name": "Get Properties",
+      "type": "n8n-nodes-imobzi.imobzi",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-1",
+              "leftValue": "={{ $json.email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "isNotEmpty"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-email",
+      "name": "Check Email",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "resource": "contact",
+        "operation": "create",
+        "contactName": "={{ $json.name }}",
+        "contactEmail": "={{ $json.email }}",
+        "contactPhone": "={{ $json.phone }}"
+      },
+      "id": "create-contact",
+      "name": "Create Contact",
+      "type": "n8n-nodes-imobzi.imobzi",
+      "typeVersion": 1,
+      "position": [1120, 200]
+    }
+  ],
+  "connections": {
+    "Imobzi Webhook": {
+      "main": [
+        [
+          {
+            "node": "Create Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Lead": {
+      "main": [
+        [
+          {
+            "node": "Get Properties",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Properties": {
+      "main": [
+        [
+          {
+            "node": "Check Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Email": {
+      "main": [
+        [
+          {
+            "node": "Create Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-01T10:00:00.000Z",
+  "versionId": "1"
+} 

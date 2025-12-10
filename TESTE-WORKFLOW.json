@@ -1,0 +1,25 @@
+{
+  "name": "TESTE IMOBZI - NOVO",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "getProperties"
+      },
+      "id": "test-imobzi-simples",
+      "name": "Imobzi Simples",
+      "type": "n8n-nodes-base.imobziSimples",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "credentials": {
+        "imobziApi": {
+          "id": "1",
+          "name": "Imobzi Credential"
+        }
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {},
+  "staticData": null
+}
+

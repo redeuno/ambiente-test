@@ -1,0 +1,2844 @@
+{
+  "base_url": "https://api.imobzi.app",
+  "total_endpoints": 300,
+  "categorias": [
+    {
+      "nome": "Contacts and Leads",
+      "total": 20,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/contacts",
+          "titulo": "Retrieve A List Of Contacts",
+          "total_parametros": 15,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/contacts/profile-picture",
+          "titulo": "Retrieve Contact Profile Picture By Email",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/contacts/search",
+          "titulo": "Retrieve A Search List Of Contacts",
+          "total_parametros": 15,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/contact/exists",
+          "titulo": "Check If Contact Exists",
+          "total_parametros": 5,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/persons",
+          "titulo": "Create A Person",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/person/{person_id}",
+          "titulo": "Retrieve A Person By Id",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/person/{person_id}",
+          "titulo": "Update A Person",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/person/{person_id}",
+          "titulo": "Delete A Person",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/person/code/{person_code}",
+          "titulo": "Retrieve A Person By Code",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/leads",
+          "titulo": "Create A Lead",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lead/{lead_id}",
+          "titulo": "Retrieve A Lead By Id",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lead/{lead_id}",
+          "titulo": "Update A Lead",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/lead/{lead_id}",
+          "titulo": "Delete A Lead",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lead/code/{lead_code}",
+          "titulo": "Retrieve A Lead By Code",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/organizations",
+          "titulo": "Create A Organization",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/organization/{organization_id}",
+          "titulo": "Retrieve A Organization By Id",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/organization/{organization_id}",
+          "titulo": "Update A Organization",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/organization/{organization_id}",
+          "titulo": "Delete A Organization",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/organization/code/{organization_code}",
+          "titulo": "Retrieve A Organization By Code",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/integration/lead",
+          "titulo": "Create Lead Integration",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "Contacts Tags",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/contacts/tags",
+          "titulo": "Retrieve A List Of Contact Tag",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/contacts/tags",
+          "titulo": "Create A Contact Tag",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/contact/tags/{tag_id}",
+          "titulo": "Retrieve A Contact Tag",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/contact/tags/{tag_id}",
+          "titulo": "Update A Contact Tag",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/contact/tags/{tag_id}",
+          "titulo": "Delete A Contact Tag",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Fields Deal",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/deal-fields",
+          "titulo": "Retrieve A List Of Deal Fields",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/deal-fields",
+          "titulo": "Create A Deal Field",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/deal-field/{field_id}",
+          "titulo": "Retrieve A Deal Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/deal-field/{field_id}",
+          "titulo": "Update A Deal Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/deal-field/{field_id}",
+          "titulo": "Delete A Deal Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Deal Lost Reasons",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/deal/lost-reason",
+          "titulo": "Retrieve A List Of Deal Lost Reason",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/deal/lost-reason",
+          "titulo": "Create A Deal Lost Reason",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/deal/lost-reason/{reason_id}",
+          "titulo": "Retrieve A Deal Lost Reason",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/deal/lost-reason/{reason_id}",
+          "titulo": "Update A Deal Lost Reason",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/deal/lost-reason/{reason_id}",
+          "titulo": "Update A Deal Lost Reason",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Deals Filters",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/deal/filter-fields",
+          "titulo": "Retrieve A List Of Deal Filter Fields",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/deal/filters",
+          "titulo": "Create Deal Filters",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/deal/filters",
+          "titulo": "Retrieve A List Of Deal Filters",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/deal/filter/{filter_id}",
+          "titulo": "Update A Deal Filter",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/deal/filter/{filter_id}",
+          "titulo": "Delete A Deal Filter",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Deals",
+      "total": 10,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/deal/range-areas",
+          "titulo": "Get Deal Range Areas",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/deal/range-values",
+          "titulo": "Get Deal Range Values",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/deals/search",
+          "titulo": "Retrieve A List Of Deals By Search",
+          "total_parametros": 30,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/reports/deals-done",
+          "titulo": "Get Deals Done",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/deal/{deal_key}/properties-match",
+          "titulo": "Get Deal Properties Match",
+          "total_parametros": 4,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/deals",
+          "titulo": "Retrieve A Deal List",
+          "total_parametros": 17,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/deals",
+          "titulo": "Create A New Deal",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/deal/{deal_id}",
+          "titulo": "Retrieve A Deal",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/deal/{deal_id}",
+          "titulo": "Update A Deal",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/deal/{deal_id}",
+          "titulo": "Delete A Deal",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Documents",
+      "total": 9,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/documents",
+          "titulo": "Retrieve A List Of Documents",
+          "total_parametros": 11,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/documents",
+          "titulo": "Create A Document",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/document/{document_id}",
+          "titulo": "Retrieve A Document By Id",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/document/{document_id}",
+          "titulo": "Update A Document",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/document/{document_id}",
+          "titulo": "Delete A Document",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/document/{document_id}/duplicate",
+          "titulo": "Duplicate Document",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/documents/files",
+          "titulo": "Add A File To The Document",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/documents/files",
+          "titulo": "Delete A File To The Document",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/document-fee",
+          "titulo": "Document Fee",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Media Source",
+      "total": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/media-sources",
+          "titulo": "Retrieve A List Of Media Sources",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/media-sources",
+          "titulo": "Create A Media Source",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/media-source/{mediasource_id}",
+          "titulo": "Retrieve A Media Source",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/media-source/{mediasource_id}",
+          "titulo": "Update A Media Source",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/media-source/{mediasource_id}",
+          "titulo": "Delete A Media Source",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/media-sources-report",
+          "titulo": "Media Sources Report",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Neighborhoods",
+      "total": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/neighborhoods",
+          "titulo": "Retrieve A List Of Neighborhoods",
+          "total_parametros": 4,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/neighborhoods",
+          "titulo": "Create A Neighborhood",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/neighborhoods/{neighborhood_id}",
+          "titulo": "Retrieve A Neighborhood By Id",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/neighborhoods/{neighborhood_id}",
+          "titulo": "Update A Neighborhood",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/neighborhoods/{neighborhood_id}",
+          "titulo": "Delete A Neighborhood",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property/neighborhoods",
+          "titulo": "Get",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Fields Contact",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/person-fields",
+          "titulo": "Retrieve A List Of Person Fields",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/person-fields",
+          "titulo": "Create A Person Field",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/person-field/{field_id}",
+          "titulo": "Retrieve A Person Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/person-field/{field_id}",
+          "titulo": "Update A Person Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/person-field/{field_id}",
+          "titulo": "Delete A Person Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Pipeline",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/pipelines",
+          "titulo": "Retrieve A List Of Pipelines",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/pipelines",
+          "titulo": "Create A Pipeline",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/pipeline/{pipeline_id}",
+          "titulo": "Get A Pipeline",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/pipeline/{pipeline_id}",
+          "titulo": "Update A Pipeline",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/pipeline/{pipeline_id}",
+          "titulo": "Delete A Pipeline",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Pipeline Group",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/pipeline-groups",
+          "titulo": "Retrieve A List Of Pipeline Group",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/pipeline-groups",
+          "titulo": "Create A Pipeline Group",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/pipeline-groups/{pipeline_group_id}",
+          "titulo": "Get A Pipeline Group",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/pipeline-groups/{pipeline_group_id}",
+          "titulo": "Update A Pipeline Group",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/pipeline-groups/{pipeline_group_id}",
+          "titulo": "Delete A Pipeline Group",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Property",
+      "total": 21,
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/v1/property/range-values",
+          "titulo": "Property Range Values",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property/range-areas",
+          "titulo": "Property Range Areas",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property/average-value/{neighborhood}/{city}",
+          "titulo": "Property Average Value",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property/exists",
+          "titulo": "Property Exists",
+          "total_parametros": 8,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property/search",
+          "titulo": "Retrieve A List Of Properties By Search",
+          "total_parametros": 5,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property/search-suggestion",
+          "titulo": "Retrieve A List Of Suggestion Properties",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/reports/properties",
+          "titulo": "Get Properties Report",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property/{property_id}/deals-match",
+          "titulo": "Property Deal Match",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/properties",
+          "titulo": "Retrieve A List Of Properties",
+          "total_parametros": 9,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/properties",
+          "titulo": "Create A Property",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property/{property_id}",
+          "titulo": "Retrieve A Property By Id",
+          "total_parametros": 4,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property/{property_id}",
+          "titulo": "Update A Property",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/property/{property_id}",
+          "titulo": "Delete A Property",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property/code/{property_code}",
+          "titulo": "Retrieve A Property By Code",
+          "total_parametros": 4,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/properties/map",
+          "titulo": "Retrieve A List Of Properties By Geo Location",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 3,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property/{property_id}/views",
+          "titulo": "Property Views",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property/{property_id}/statistics",
+          "titulo": "Property Statistics",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property-shared/{key}",
+          "titulo": "Property Shared",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property-cities",
+          "titulo": "Property Cities",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/properties/generate/description",
+          "titulo": "Create A Property Descriptions",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property-buildings/search",
+          "titulo": "Mirror Details",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Property Calendar",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/property/{property_id}/calendar-items",
+          "titulo": "Create A Property Calendar Item",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Property Photo",
+      "total": 3,
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/v1/properties/{property_id}/photos",
+          "titulo": "Add A Photo In Property",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "PUT",
+          "path": "/v1/properties/{property_id}/photos/{photo_id}",
+          "titulo": "Update A Photo In Property",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/properties/{property_id}/photos/{photo_id}",
+          "titulo": "Delete A Photo In Property",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Property Types",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/property-types",
+          "titulo": "Retrieve A List Of Property Types",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property-types",
+          "titulo": "Create A Property Type",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property-types/{property_type_id}",
+          "titulo": "Retrieve A Property Type",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property-types/{property_type_id}",
+          "titulo": "Update A Property Type",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/property-types/{property_type_id}",
+          "titulo": "Delete A Property Type",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Property Features",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/property-features",
+          "titulo": "Retrieve A List Of Property Feature",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property-features",
+          "titulo": "Create A Property Feature",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property-feature/{feature_id}",
+          "titulo": "Retrieve A Property Feature",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property-feature/{feature_id}",
+          "titulo": "Update A Property Feature",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/property-feature/{feature_id}",
+          "titulo": "Delete A Property Feature",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Fields Property",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/property-fields",
+          "titulo": "Retrieve A List Of Property Fields",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property-fields",
+          "titulo": "Create A Property Field",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property-field/{field_id}",
+          "titulo": "Retrieve A Property Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property-field/{field_id}",
+          "titulo": "Update A Property Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/property-field/{field_id}",
+          "titulo": "Delete A Property Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Property Reserves",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/property-reserves",
+          "titulo": "Retrieve A List Of Property Reserves",
+          "total_parametros": 4,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property-reserves",
+          "titulo": "Create A Property Reserve",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property-reserve/{reserve_id}",
+          "titulo": "Retrieve A Property Reserve",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property-reserve/{reserve_id}",
+          "titulo": "Update A Property Reserve",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/property-reserve/{reserve_id}",
+          "titulo": "Delete A Property Reserve",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Fields Organization",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/organization-fields",
+          "titulo": "Retrieve A List Of Organization Fields",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/organization-fields",
+          "titulo": "Create A Organization Field",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/organization-field/{field_id}",
+          "titulo": "Retrieve A Organization Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/organization-field/{field_id}",
+          "titulo": "Update A Organization Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/organization-field/{field_id}",
+          "titulo": "Delete A Organization Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Deals Rotations",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/deals-rotations",
+          "titulo": "Retrieve A List Of Deals Rotations",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/deals-rotations",
+          "titulo": "Create A Deal Rotation",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/deal-rotation/{db_id}",
+          "titulo": "Retrieve A Deal Rotation",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/deal-rotation/{db_id}",
+          "titulo": "Update A Deal Rotation",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/deal-rotation/{db_id}",
+          "titulo": "Delete A Deal Rotation",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "City",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/cities",
+          "titulo": "Retrieve A List Of Cities",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Reports Sites",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/reports/site-analytics",
+          "titulo": "Get Site Statistics",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Webhook",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/webhooks",
+          "titulo": "Retrieve A List Of Webhooks",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/webhooks",
+          "titulo": "Create A Webhooks",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/webhook/{webhook_id}",
+          "titulo": "Retrieve A Webhook",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/webhook/{webhook_id}",
+          "titulo": "Update A Webhook",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/webhook/{webhook_id}",
+          "titulo": "Delete A Webhook",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Teams",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/user-teams",
+          "titulo": "Retrieve A List Of Teams",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/user-teams",
+          "titulo": "Create A Team",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/user-team/{team_id}",
+          "titulo": "Update A Team",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/user-team/{team_id}",
+          "titulo": "Retrieve A Team",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/user-team/{team_id}",
+          "titulo": "Delete A Team",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Calendar",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/calendar",
+          "titulo": "Retrieve A List Of Calendar",
+          "total_parametros": 14,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/calendar",
+          "titulo": "Create A Calendar Item",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/calendar-item/{calendar_id}",
+          "titulo": "Retrieve A Calendar Item",
+          "total_parametros": 15,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/calendar-item/{calendar_id}",
+          "titulo": "Update A Calendar Item",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/calendar-item/{calendar_id}",
+          "titulo": "Delete A Calendar Item",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "User Billing",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/user-billing",
+          "titulo": "Retrieve A List Of User Billing",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Property Adverts",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/property-adverts/{advert_key}",
+          "titulo": "Get A Property Advert",
+          "total_parametros": 4,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property-adverts/{advert_key}",
+          "titulo": "Update A Property Adverts",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/property-adverts/{advert_key}",
+          "titulo": "Delete A Advert",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/property-adverts",
+          "titulo": "Retrieve A List Property Adverts",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/property-adverts",
+          "titulo": "Create A Property Adverts",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "Measure",
+      "total": 2,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/measures/{locale}",
+          "titulo": "Retrieve A List Of Measures",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/measure",
+          "titulo": "Create A Measure",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "User Performance",
+      "total": 2,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/reports/user-performance/",
+          "titulo": "Retrieve User Performance Report",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/reports/user-performance/{user_id}",
+          "titulo": "Retrieve User Performance Report",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Proposal",
+      "total": 3,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/proposal/property",
+          "titulo": "Retrieve A List Of Property Proposal",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/proposal/deal/{deal_key}",
+          "titulo": "Retrieve A Deal Proposal",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/proposal/deal",
+          "titulo": "Retrieve A List Of Deal Proposal",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "States",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/states",
+          "titulo": "Retrieve A List Of States",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Contact Bank",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/contact/{contact_id}/bank-data",
+          "titulo": "Retrieve A Contact Bank Data",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Vacation Calendar",
+      "total": 2,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/{property_code}/vacation-calendar",
+          "titulo": "Retrieve A Property Vacation Calendar",
+          "total_parametros": 4,
+          "parametros_obrigatorios": 3,
+          "possui_body": "Não"
+        },
+        {
+          "method": "PUT",
+          "path": "/v1/vacation-calendar",
+          "titulo": "Update A Vacation Calendar Values",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "Chat conversations",
+      "total": 2,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/chat-conversations",
+          "titulo": "Retrieve A List Of Chats",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/chat-conversations",
+          "titulo": "Create Chat Conversation",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "Send Messaging",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/v1/send/{send_type}",
+          "titulo": "Send Messaging",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "Calendar types",
+      "total": 4,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/calendar-types",
+          "titulo": "Get Calendar Types List",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/calendar-types",
+          "titulo": "Create Calendar Type",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/calendar-types/{calendar_type_id}",
+          "titulo": "Update Calendar Type",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/calendar-types/{calendar_type_id}",
+          "titulo": "Delete Calendar Type",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Utils",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/utils/{utils_type}",
+          "titulo": "Retrieve Utils By Type",
+          "total_parametros": 11,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Banks",
+      "total": 3,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/banks",
+          "titulo": "Retrieve A List Of Banks",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/banks",
+          "titulo": "Create A New Bank",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/bank/{bank_id}",
+          "titulo": "Retrieve A Bank By Bank Id",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Financial commissions",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/commission/onlending",
+          "titulo": "Get Commission Onlending Receipt",
+          "total_parametros": 4,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Contracts",
+      "total": 7,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/contracts",
+          "titulo": "Retrieve A List Of Contracts",
+          "total_parametros": 7,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/contracts",
+          "titulo": "Create A New Contract",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/contract/code/{contract_code}",
+          "titulo": "Retrieve A Contract By Contract Code",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/contract/code/{contract_code}",
+          "titulo": "Update A Contract By Contract Code",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/contract/{contract_id}",
+          "titulo": "Retrieve A Contract By Contract Id",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/contract/{contract_id}",
+          "titulo": "Update A Contract By Contract Id",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/contract/{contract_id}",
+          "titulo": "Delete Contract By Contract Id",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Contract Fields",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/contract-fields",
+          "titulo": "Retrieve A List Of Contract Fields Personalized",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/contract-fields",
+          "titulo": "Create A Contract Field Personalized",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/contract-field/{field_id}",
+          "titulo": "Retrieve A Contract Field Personalized By Id",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/contract-field/{field_id}",
+          "titulo": "Update A Contract Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/contract-field/{field_id}",
+          "titulo": "Delete A Contract Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Invoices",
+      "total": 4,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/invoices",
+          "titulo": "Get List Invoices",
+          "total_parametros": 15,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/invoices",
+          "titulo": "Create Invoice",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/invoice/{invoice_id}",
+          "titulo": "Get Invoice By Invoice Id",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/invoice/{invoice_id}",
+          "titulo": "Invoice Update",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "Financial categories",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/financial/categories",
+          "titulo": "Retrieve A List Of Financial Categories",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/financial/categories",
+          "titulo": "Create A Financial Category",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/financial/category/{category_id}",
+          "titulo": "Retrieve A Financial Category",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/financial/category/{category_id}",
+          "titulo": "Update A Financial Category",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/financial/category/{category_id}",
+          "titulo": "Delete A Financial Category",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Lease Agreement",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/v1/lease/agreement",
+          "titulo": "Lease-Agreement",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "lease-item-description",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/lease/item-description",
+          "titulo": "Get Lease Item Description Default List",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "lease-checklist",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/lease/checklist",
+          "titulo": "Get Lease Checklist Default",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Financial landlord accounts",
+      "total": 2,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/financial/landlord/accounts",
+          "titulo": "Retrieve A List Of Financial Landlord Accounts",
+          "total_parametros": 10,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/financial/landlord/account/{landlord_account_id}",
+          "titulo": "Retrieve A Financial Landlord Account",
+          "total_parametros": 11,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Financial accounts",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/financial/accounts",
+          "titulo": "Retrieve A List Of Financial Accounts",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/financial/accounts",
+          "titulo": "Create A Financial Accounts",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/financial/account/{account_id}",
+          "titulo": "Get Financial Accounts",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/financial/account/{account_id}",
+          "titulo": "Update Financial Accounts",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/financial/account/{account_id}",
+          "titulo": "Delete Financial Account",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Financial Tags",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/financial/tags",
+          "titulo": "Financial-Tags",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Financial Landlord Account Onlending",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/financial/landlord/account/individual-onlending/{landlord_transaction_id}",
+          "titulo": "Financial-Landlord-Onlending-By-Invoice",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Financial Transactions attachments",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/v1/financial/transaction/attachments",
+          "titulo": "Financial-Transactions-Attachments",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "Financial Transactions",
+      "total": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/financial/transactions",
+          "titulo": "Get List Financial-Transactions",
+          "total_parametros": 18,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/financial/transactions",
+          "titulo": "Create Financial Transaction",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/financial/transaction/{transaction_id}",
+          "titulo": "Get Financial Transaction",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/financial/transaction/{transaction_id}",
+          "titulo": "Update Financial Transaction",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/financial/transaction/{transaction_id}",
+          "titulo": "Delete Financial Transaction",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/financial/organization",
+          "titulo": "Financial-Transaction-Organization",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Invoice send notification",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/v1/invoice/{invoice_id}/send-notification",
+          "titulo": "Integration-Send-Notification",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Lease Insurance",
+      "total": 4,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/lease/calculate-insurance",
+          "titulo": "Calculate Insurance",
+          "total_parametros": 34,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lease/hire-insurance",
+          "titulo": "Hire Insurance",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lease/cancel-insurance",
+          "titulo": "Cancel Insurance",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lease/no-cancellation-insurance",
+          "titulo": "No Cancellation Of Insurance",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "Lease Calculate",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/v1/lease/calculate",
+          "titulo": "Lease-Calculate",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "lease",
+      "total": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/leases",
+          "titulo": "Get Leases",
+          "total_parametros": 8,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/leases",
+          "titulo": "Create A Lease",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lease/{lease_id}",
+          "titulo": "Get Lease By Db Id",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lease/{lease_id}",
+          "titulo": "Update Lease",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/lease/{lease_id}",
+          "titulo": "Delete Lease",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lease/code/{lease_code}",
+          "titulo": "Get Lease By Code",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Lease Fields",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/lease-fields",
+          "titulo": "Retrieve A List Of Lease Fields",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lease-fields",
+          "titulo": "Create A Lease Field",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/lease-field/{field_id}",
+          "titulo": "Retrieve A Lease Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/lease-field/{field_id}",
+          "titulo": "Update A Lease Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/lease-field/{field_id}",
+          "titulo": "Delete A Lease Field",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Annual readjustments",
+      "total": 2,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/annual-readjustments",
+          "titulo": "Annual-Readjustments",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/annual/readjustment",
+          "titulo": "Annual-Readjustment",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Nota fiscal landlord transactions",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/nota-fiscal/landlord/{landlord_account_id}/transactions",
+          "titulo": "Nota-Fiscal-Landlord-Transactions",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Nota Fiscal",
+      "total": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/notas-fiscais",
+          "titulo": "Get Notas Fiscal List",
+          "total_parametros": 9,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/notas-fiscais",
+          "titulo": "Create A New Nota Fiscal",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/nota-fiscal/{nota_fiscal_key}",
+          "titulo": "Get Nota Fiscal",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/nota-fiscal/{nota_fiscal_key}",
+          "titulo": "Update Nota Fiscal",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/nota-fiscal/{nota_fiscal_key}",
+          "titulo": "Delete Nota Fiscal",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/nota-fiscal/{nota_fiscal_key}/send-email",
+          "titulo": "Nota-Fiscal-Email",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Financial landlord account transactions",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/financial/landlord/account/{landlord_account_id}/transactions",
+          "titulo": "Get Transactions Financial Landlord Account",
+          "total_parametros": 6,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/financial/landlord/account/{landlord_account_id}/transactions",
+          "titulo": "Create Financial Landlord Account Transaction",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/financial/landlord/account/{landlord_account_id}/transaction/{landlord_transaction_id}",
+          "titulo": "Get Financial Landlord Account Transaction",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/financial/landlord/account/{landlord_account_id}/transaction/{landlord_transaction_id}",
+          "titulo": "Update Landlord Transaction",
+          "total_parametros": 5,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/financial/landlord/account/{landlord_account_id}/transaction/{landlord_transaction_id}",
+          "titulo": "Delete Landlord Transaction",
+          "total_parametros": 5,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Financial Transaction Match",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/financial/transaction/{transaction_type}/{description}/match",
+          "titulo": "Financial-Transaction-Match",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Real Estate Posts Comment",
+      "total": 8,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/real-estate/posts/{post_id}/comments",
+          "titulo": "Retrieve A Real Estate Posts Comment",
+          "total_parametros": 4,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/real-estate/posts/{post_id}/comments",
+          "titulo": "Create A Real Estate Post Comments",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/real-estate/posts/{post_id}/comments/{comment_id}",
+          "titulo": "Create A Real Estate Post Comments",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/real-estate/posts/{post_id}/comments/{comment_id}",
+          "titulo": "Delete A Real Estate Post",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/real-estate/posts/{post_id}/comments/{comment_id}/replies",
+          "titulo": "Retrieve A Real Estate Posts Comment Replies",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/real-estate/posts/{post_id}/comments/{comment_id}/replies",
+          "titulo": "Create A Real Estate Post Comment Replies",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/real-estate/posts/{post_id}/comments/{comment_id}/replies/{reply_id}",
+          "titulo": "Create A Real Estate Post Comment Replies",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 3,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/real-estate/posts/{post_id}/comments/{comment_id}/replies/{reply_id}",
+          "titulo": "Delete A Real Estate Post Comment Replies",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 3,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Parameters",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/parameters",
+          "titulo": "Retrieve Parameters",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Revisions",
+      "total": 3,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/revision/{register_type}",
+          "titulo": "Retrieve A List Of Revisions (Backup)",
+          "total_parametros": 9,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/revision/{register_type}/{revision_key}",
+          "titulo": "Retrieve A List Of Revisions (Backup)",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/revision/{register_type}/{revision_key}",
+          "titulo": "Retrieve A List Of Revisions",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Timelines",
+      "total": 5,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/timeline",
+          "titulo": "Retrieve A List Of Timeline",
+          "total_parametros": 8,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/timeline",
+          "titulo": "Create A New Timeline Item",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/timeline-item/{timeline_key}",
+          "titulo": "Retrieve A Timeline Item",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/timeline-item/{timeline_key}",
+          "titulo": "Update A New Timeline Item",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/timeline-item/{timeline_key}",
+          "titulo": "Delete A Timeline Item",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Integrations",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/integrations",
+          "titulo": "Retrieve A List Of Integrations",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Users",
+      "total": 9,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/users",
+          "titulo": "Retrieve A User List",
+          "total_parametros": 7,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/users",
+          "titulo": "Create User",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/user/profile",
+          "titulo": "Get User Profile",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/user/emailvalid",
+          "titulo": "Email Is Valid",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/user/{db_id}",
+          "titulo": "Get User",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/user/{db_id}/properties",
+          "titulo": "Get Profile Properties",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/users/ranking",
+          "titulo": "Get Users Ranking",
+          "total_parametros": 3,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/user/{user_id}/rules",
+          "titulo": "Get User Rules",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/user-rules",
+          "titulo": "Get Rules",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Realtors",
+      "total": 1,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/realtors",
+          "titulo": "Realtors",
+          "total_parametros": 15,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Notifications",
+      "total": 3,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/notifications",
+          "titulo": "Retrieve A List Of Notifications",
+          "total_parametros": 5,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/notifications",
+          "titulo": "Create A Notification",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/notification/{notification_id}",
+          "titulo": "Update A Notification",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        }
+      ]
+    },
+    {
+      "nome": "Credit Financing Analysis",
+      "total": 6,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/cf-analysis",
+          "titulo": "Retrieve A List Of Credit Financing Analysis",
+          "total_parametros": 5,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/cf-analysis",
+          "titulo": "Create Credit Financing Analysis",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/cf-analysis/{analysis_id}",
+          "titulo": "Retrieve A Credit Financing Analysis",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/cf-analysis/{analysis_id}",
+          "titulo": "Update Credit Financing Analysis",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/cf-analysis/{analysis_id}",
+          "titulo": "Delete Credit Financing Analysis",
+          "total_parametros": 1,
+          "parametros_obrigatorios": 1,
+          "possui_body": "Não"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/analysis-fee",
+          "titulo": "Credit Financing Analysis Fee",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        }
+      ]
+    },
+    {
+      "nome": "Site Highlights",
+      "total": 4,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/v1/adverts/site-highlights",
+          "titulo": "Get List Of Site Highlights",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Não"
+        },
+        {
+          "method": "PUT",
+          "path": "/v1/adverts/site-highlights",
+          "titulo": "Changing The Order Of Properties",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/adverts/site-highlights",
+          "titulo": "Adding Property To Highlights",
+          "total_parametros": 0,
+          "parametros_obrigatorios": 0,
+          "possui_body": "Sim"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/adverts/site-highlight/{section_id}/{property_id}",
+          "titulo": "Delete Property Highlight",
+          "total_parametros": 2,
+          "parametros_obrigatorios": 2,
+          "possui_body": "Não"
+        }
+      ]
+    }
+  ]
+}
