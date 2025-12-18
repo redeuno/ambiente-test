@@ -20,30 +20,20 @@ const currentCategory = rawCategory.toLowerCase().trim();
 // Inicializa o cache se não existir
 $workflow.staticData.categoryCache = $workflow.staticData.categoryCache || {};
 
-// Lista de categorias válidas (que têm namespace no Pinecone)
+// ═══════════════════════════════════════════════════════════════════
+// CATEGORIAS VÁLIDAS - Exatamente como retornadas pelo Categorize
+// ═══════════════════════════════════════════════════════════════════
 const VALID_CATEGORIES = [
-  'attributes',
   'attributes_v1',
   'attributes_v2',
-  'cmsfilter',
-  'cms_filter',
-  'cmsload',
-  'cms_load',
-  'cmsnest',
-  'cms_nest',
-  'cmssort',
-  'cms_sort',
   'client_first',
-  'clientfirst',
   'components',
   'cms_bridge',
-  'cmsbridge',
   'consent-pro',
-  'consent_pro',
-  'consentpro',
   'extension',
   'wized',
   'general'
+  // 'other' NÃO é válida - é o fallback quando não identifica
 ];
 
 // Verifica se a categoria atual é válida
@@ -83,30 +73,21 @@ if (isValidCategory) {
   categorySource = 'unknown';
 }
 
-// Mapeamento para namespace do Pinecone (normaliza variações)
+// ═══════════════════════════════════════════════════════════════════
+// MAPEAMENTO PARA NAMESPACE DO PINECONE
+// ═══════════════════════════════════════════════════════════════════
+// As categorias mapeiam 1:1 para namespaces, exceto consent-pro
 const NAMESPACE_MAP = {
-  'attributes': 'attributes_v2',
   'attributes_v1': 'attributes_v1',
   'attributes_v2': 'attributes_v2',
-  'cmsfilter': 'attributes_v2',
-  'cms_filter': 'attributes_v2',
-  'cmsload': 'attributes_v2',
-  'cms_load': 'attributes_v2',
-  'cmsnest': 'attributes_v2',
-  'cms_nest': 'attributes_v2',
-  'cmssort': 'attributes_v2',
-  'cms_sort': 'attributes_v2',
   'client_first': 'client_first',
-  'clientfirst': 'client_first',
   'components': 'components',
   'cms_bridge': 'cms_bridge',
-  'cmsbridge': 'cms_bridge',
-  'consent-pro': 'consent_pro',
-  'consent_pro': 'consent_pro',
-  'consentpro': 'consent_pro',
+  'consent-pro': 'consent-pro',   // Mantém com hífen se Pinecone usa assim
   'extension': 'extension',
   'wized': 'wized',
-  'general': 'general'
+  'general': 'general',
+  'other': 'general'              // Fallback para general se não identificou
 };
 
 // Determina o namespace do Pinecone

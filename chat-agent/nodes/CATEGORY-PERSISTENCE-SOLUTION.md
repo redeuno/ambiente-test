@@ -65,9 +65,9 @@ Category/Product: {{ $('Category Cache').item.json.category !== 'other' ? $('Cat
 │                                                                  │
 │  Msg 1: "CMS filter broken"                                     │
 │    ↓                                                             │
-│  Categorize → "cmsfilter"                                       │
+│  Categorize → "attributes_v2"                                   │
 │    ↓                                                             │
-│  Category Cache → GUARDA "cmsfilter" para sessionId             │
+│  Category Cache → GUARDA "attributes_v2" para sessionId         │
 │    ↓                                                             │
 │  Pinecone → namespace: "attributes_v2"                          │
 │                                                                  │
@@ -77,7 +77,7 @@ Category/Product: {{ $('Category Cache').item.json.category !== 'other' ? $('Cat
 │    ↓                                                             │
 │  Categorize → "other" (não menciona produto)                    │
 │    ↓                                                             │
-│  Category Cache → RECUPERA "cmsfilter" do cache                 │
+│  Category Cache → RECUPERA "attributes_v2" do cache             │
 │    ↓                                                             │
 │  Pinecone → namespace: "attributes_v2" ✅                       │
 │                                                                  │
@@ -90,7 +90,7 @@ Category/Product: {{ $('Category Cache').item.json.category !== 'other' ? $('Cat
 
 ```json
 {
-  "category": "cmsfilter",
+  "category": "attributes_v2",
   "pineconeNamespace": "attributes_v2",
   "debug": {
     "originalCategory": "other",
@@ -113,19 +113,18 @@ Category/Product: {{ $('Category Cache').item.json.category !== 'other' ? $('Cat
 
 ## Mapeamento de Namespaces
 
-O cache normaliza variações para o namespace correto:
+As categorias mapeiam 1:1 para namespaces do Pinecone:
 
 | Categoria | Namespace Pinecone |
 |-----------|-------------------|
-| cmsfilter, cms_filter, cmsload, cmsnest | `attributes_v2` |
-| attributes, attributes_v2 | `attributes_v2` |
 | attributes_v1 | `attributes_v1` |
+| attributes_v2 | `attributes_v2` |
+| client_first | `client_first` |
 | components | `components` |
-| wized | `wized` |
-| client_first, clientfirst | `client_first` |
-| cms_bridge, cmsbridge | `cms_bridge` |
-| consent-pro, consent_pro | `consent_pro` |
+| cms_bridge | `cms_bridge` |
+| consent-pro | `consent-pro` |
 | extension | `extension` |
+| wized | `wized` |
 | general | `general` |
 | other (sem cache) | `general` |
 

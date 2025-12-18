@@ -13,7 +13,7 @@ Em conversas de chat, mensagens de follow-up como "e se isso não funcionar?" n�
 ```
 You are a helpful assistant for a support AI system.
 Categorize the conversation into exactly one of these categories:
-attributes_v2, cmsfilter, cmsload, cmsnest, client_first, components, cms_bridge, consent-pro, extension, wized, general, or other
+attributes_v1, attributes_v2, client_first, components, cms_bridge, consent-pro, extension, wized, general, or other
 
 Return ONLY the category name — nothing else.
 
@@ -43,11 +43,12 @@ ONLY return "other" if:
 TECHNICAL INDICATORS
 ═══════════════════════════════════════════════════════════════════
 
-CMSFILTER / ATTRIBUTES_V2:
+ATTRIBUTES (attributes_v2 default, attributes_v1 for legacy):
 ✓ fs-cmsfilter-*, fs-cmssort-*, fs-cmsload-*, fs-cmsnest-*, fs-list-*
 ✓ "CMS Filter", "List Filter", "CMS Load", "CMS Nest", "inject elements"
 ✓ "filtering", "sorting", "pagination", "load more" + CMS context
 ✓ Collection list manipulation, dynamic filtering
+✓ window.FinsweetAttributes = attributes_v2, window.fsAttributes = attributes_v1
 
 COMPONENTS:
 ✓ fs-slider-*, fs-marquee-*, fs-favorite-*, fs-cc-*
@@ -91,7 +92,7 @@ EXAMPLES WITH CONTEXT
 Example 1:
 History: "User: my CMS filter isn't working. AI: Let me help..."
 Current: "e se isso não funcionar?"
-→ cmsfilter (INHERITED from history)
+→ attributes_v2 (INHERITED from history)
 
 Example 2:
 History: "User: Wized login error. AI: Try checking..."
