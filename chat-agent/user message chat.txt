@@ -1,0 +1,27 @@
+User's current message: {{ $('Receive New Discourse Message').item.json.chatInput }}
+
+Session ID: {{ $('Receive New Discourse Message').item.json.sessionId }}
+
+=== COLLECTED CONTEXT ===
+
+Username: {{ $('Information Extractor').item.json.output.username && $('Information Extractor').item.json.output.username !== '@' && $('Information Extractor').item.json.output.username !== '' ? $('Information Extractor').item.json.output.username : '[NOT PROVIDED YET]' }}
+
+Category/Product: {{ $json.message.content && $json.message.content !== 'other' && $json.message.content !== 'unknown' ? $json.message.content : '[NOT IDENTIFIED YET]' }}
+
+Website URL: {{ $('Information Extractor').item.json.output.Website && $('Information Extractor').item.json.output.Website !== '' && !$('Information Extractor').item.json.output.Website.includes('example.com') ? $('Information Extractor').item.json.output.Website : '[NOT PROVIDED YET]' }}
+
+=== HTML ANALYSIS ===
+{{ $('Clean HTML').item.json.stats.totalFsAttributes > 0 || $('Clean HTML').item.json.stats.productsDetected > 0 ? 'HTML Status: AVAILABLE\n\nCleaned HTML:\n' + $('Clean HTML').item.json.cleanedHtml + '\n\nPage Attributes:\n' + $('Clean HTML').item.json.attributeSummary + '\n\nDetected Scripts:\n' + $('Clean HTML').item.json.detectedScripts : 'HTML Status: [NOT AVAILABLE YET - No valid website URL provided]' }}
+
+=== IMAGES ANALYSIS ===
+{{ $('Merge').item.json.extractedImages.hasImages ? 'Images Status: AVAILABLE (' + $('Merge').item.json.extractedImages.count + ' images)\n\nScreenshots/Images Analysis:\n' + $('Merge').item.json.imageAnalysis.description : 'Images Status: [NO IMAGES UPLOADED YET]' }}
+
+=== CONVERSATION CONTEXT ===
+This is a REAL-TIME CHAT conversation. The user may not have provided all information yet.
+You should:
+1. If this is a greeting or initial message without technical details → Welcome them and ask what product they need help with
+2. If product/category is unclear → Ask which Finsweet product they're using
+3. If you need HTML/staging URL to diagnose → Ask for their staging URL
+4. If you have enough context → Proceed with Think tool ANALYZE mode
+
+Remember: This is conversational - you can ask follow-up questions naturally.
