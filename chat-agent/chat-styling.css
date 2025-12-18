@@ -27,48 +27,38 @@
   /* ========================================
      TYPOGRAPHY - FINSWEET BRAND FONT
      ======================================== */
-  --chat--font-family: (
-    'Graphik',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Inter',
-    system-ui,
-    Roboto,
-    'Helvetica Neue',
-    sans-serif
-  );
+  --chat--font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, Roboto, 'Helvetica Neue', sans-serif;
 
   /* ========================================
      WINDOW DIMENSIONS
      ======================================== */
-  --chat--window--width: 420px;
-  --chat--window--height: 640px;
+  --chat--window--width: 440px;
+  --chat--window--height: 680px;
   --chat--window--bottom: 24px;
   --chat--window--right: 24px;
   --chat--window--z-index: 9999;
   --chat--window--border: none;
-  --chat--window--border-radius: 16px;
+  --chat--window--border-radius: 20px;
   --chat--window--margin-bottom: 16px;
-  --chat--window--shadow: 0 20px 60px rgba(17, 17, 17, 0.15);
+  --chat--window--shadow: 0 25px 80px rgba(17, 17, 17, 0.2);
 
   /* ========================================
      HEADER STYLES - FINSWEET DARK THEME
      ======================================== */
   --chat--header-height: auto;
-  --chat--header--padding: 20px 24px 18px 24px;
+  --chat--header--padding: 24px 24px 20px 24px;
   --chat--header--background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
   --chat--header--color: #ffffff;
   --chat--header--border-top: none;
-  --chat--header--border-bottom: 2px solid #bcfd2e;
+  --chat--header--border-bottom: 3px solid #bcfd2e;
   --chat--header--border-left: none;
   --chat--header--border-right: none;
-  --chat--heading--font-size: 1.25rem;
+  --chat--heading--font-size: 1.35rem;
   --chat--heading--font-weight: 700;
   --chat--heading--letter-spacing: -0.02em;
-  --chat--subtitle--font-size: 0.85rem;
-  --chat--subtitle--line-height: 1.3;
-  --chat--subtitle--opacity: 0.75;
+  --chat--subtitle--font-size: 0.9rem;
+  --chat--subtitle--line-height: 1.4;
+  --chat--subtitle--opacity: 0.8;
   --chat--subtitle--font-weight: 400;
 
   /* ========================================
@@ -76,15 +66,15 @@
      ======================================== */
   --chat--message--font-size: 0.95rem;
   --chat--message--padding: 16px 20px;
-  --chat--message--border-radius: 18px;
-  --chat--message-line-height: 1.5;
-  --chat--message--margin-bottom: 12px;
+  --chat--message--border-radius: 20px;
+  --chat--message-line-height: 1.6;
+  --chat--message--margin-bottom: 14px;
 
   /* Bot Messages - Clean white with subtle border */
   --chat--message--bot--background: #ffffff;
   --chat--message--bot--color: #111111;
   --chat--message--bot--border: 1px solid #e9ecef;
-  --chat--message--bot--shadow: 0 2px 8px rgba(17, 17, 17, 0.08);
+  --chat--message--bot--shadow: 0 4px 12px rgba(17, 17, 17, 0.08);
 
   /* User Messages - Finsweet accent color */
   --chat--message--user--background: #bcfd2e;
@@ -92,8 +82,8 @@
   --chat--message--user--border: none;
   --chat--message--user--font-weight: 500;
 
-  --chat--message--pre--background: rgba(17, 17, 17, 0.05);
-  --chat--messages-list--padding: 20px;
+  --chat--message--pre--background: rgba(17, 17, 17, 0.06);
+  --chat--messages-list--padding: 24px;
 
   /* ========================================
      TOGGLE BUTTON - FINSWEET STYLE
@@ -106,16 +96,16 @@
   --chat--toggle--hover--background: #2a2a2a;
   --chat--toggle--active--background: #111111;
   --chat--toggle--color: #bcfd2e;
-  --chat--toggle--shadow: 0 8px 32px rgba(17, 17, 17, 0.25);
+  --chat--toggle--shadow: 0 8px 32px rgba(17, 17, 17, 0.3);
 
   /* ========================================
      INPUT AREA
      ======================================== */
-  --chat--textarea--height: 52px;
-  --chat--textarea--max-height: 120px;
+  --chat--textarea--height: 56px;
+  --chat--textarea--max-height: 140px;
   --chat--input--font-size: 0.95rem;
-  --chat--input--border: 1px solid #e9ecef;
-  --chat--input--border-radius: 12px;
+  --chat--input--border: 2px solid #e9ecef;
+  --chat--input--border-radius: 16px;
   --chat--input--padding: 16px 20px;
   --chat--input--background: #ffffff;
   --chat--input--text-color: #111111;
@@ -130,8 +120,8 @@
   --chat--button--color: #111111;
   --chat--button--background: #bcfd2e;
   --chat--button--padding: 12px 20px;
-  --chat--button--border-radius: 8px;
-  --chat--button--font-weight: 500;
+  --chat--button--border-radius: 10px;
+  --chat--button--font-weight: 600;
   --chat--button--hover--color: #111111;
   --chat--button--hover--background: #a8e526;
   --chat--close--button--color-hover: #111111;
@@ -152,7 +142,7 @@
   /* ========================================
      BODY AND FOOTER
      ======================================== */
-  --chat--body--background: #f8f9fa;
+  --chat--body--background: #f5f6f7;
   --chat--footer--background: #ffffff;
   --chat--footer--color: #111111;
   --chat--footer--border-top: 1px solid #e9ecef;
@@ -163,14 +153,15 @@
    ============================================ */
 
 .chat-message {
-  max-width: 75%;
+  max-width: 85%;
   font-weight: 400;
   box-shadow: var(--chat--message--bot--shadow);
+  font-family: var(--chat--font-family);
 }
 
 .chat-message.user {
   font-weight: 500;
-  box-shadow: 0 2px 12px rgba(188, 253, 46, 0.25);
+  box-shadow: 0 4px 16px rgba(188, 253, 46, 0.3);
 }
 
 /* ============================================
@@ -180,54 +171,64 @@
 .chat-header {
   background: var(--chat--header--background) !important;
   position: relative;
-  font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif !important;
+  font-family: var(--chat--font-family) !important;
 }
 
 .chat-header::before {
   content: "F";
   position: absolute;
-  top: 18px;
+  top: 22px;
   right: 24px;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   background: #ffffff;
   color: #111111;
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif;
-  font-weight: 700;
-  font-size: 20px;
+  font-family: var(--chat--font-family);
+  font-weight: 800;
+  font-size: 22px;
   letter-spacing: -0.02em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .chat-title {
-  font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif !important;
-  font-weight: 600;
-  font-size: 1.25rem;
+  font-family: var(--chat--font-family) !important;
+  font-weight: 700;
+  font-size: 1.35rem;
   letter-spacing: -0.025em;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   color: #ffffff;
   line-height: 1.2;
 }
 
 .chat-subtitle {
-  font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif !important;
-  opacity: 0.75;
-  font-size: 0.875rem;
+  font-family: var(--chat--font-family) !important;
+  opacity: 0.85;
+  font-size: 0.9rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
 }
 
 /* ============================================
    INPUT STYLING
    ============================================ */
 
+.chat-input {
+  transition: all 0.2s ease;
+}
+
 .chat-input:focus {
   border-color: var(--chat--color-primary);
-  box-shadow: 0 0 0 3px rgba(188, 253, 46, 0.1);
+  box-shadow: 0 0 0 4px rgba(188, 253, 46, 0.15);
+  outline: none;
+}
+
+.chat-input::placeholder {
+  color: #9ca3af;
 }
 
 /* ============================================
@@ -236,20 +237,119 @@
 
 .chat-toggle {
   box-shadow: var(--chat--toggle--shadow);
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .chat-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(17, 17, 17, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 45px rgba(17, 17, 17, 0.35);
+}
+
+.chat-toggle:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 /* ============================================
-   TYPING INDICATOR
+   🔥 TYPING/THINKING INDICATOR - ANIMATED
    ============================================ */
 
-.typing-indicator {
-  color: var(--chat--color-primary);
+.chat-message-typing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.08);
+  max-width: 200px;
+  margin-bottom: 14px;
+}
+
+.chat-message-typing::before {
+  content: "Finn AI is thinking";
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.chat-message-typing .typing-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.chat-message-typing .typing-dots span {
+  width: 8px;
+  height: 8px;
+  background: #bcfd2e;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.chat-message-typing .typing-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.chat-message-typing .typing-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.chat-message-typing .typing-dots span:nth-child(3) {
+  animation-delay: 0s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* n8n native typing indicator enhancement */
+.typing-indicator,
+[class*="typing"] {
+  display: flex !important;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.08);
+  max-width: fit-content;
+}
+
+.typing-indicator::before,
+[class*="typing"]::before {
+  content: "Finn AI is thinking...";
+  font-size: 0.875rem;
+  color: #6c757d;
+  font-weight: 500;
+  margin-right: 8px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.typing-indicator span,
+[class*="typing"] span {
+  width: 8px;
+  height: 8px;
+  background: #bcfd2e;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
 }
 
 /* ============================================
@@ -261,17 +361,17 @@
 }
 
 .chat-messages::-webkit-scrollbar-track {
-  background: rgba(17, 17, 17, 0.05);
+  background: rgba(17, 17, 17, 0.03);
   border-radius: 3px;
 }
 
 .chat-messages::-webkit-scrollbar-thumb {
-  background: rgba(188, 253, 46, 0.3);
+  background: rgba(188, 253, 46, 0.4);
   border-radius: 3px;
 }
 
 .chat-messages::-webkit-scrollbar-thumb:hover {
-  background: rgba(188, 253, 46, 0.5);
+  background: rgba(188, 253, 46, 0.6);
 }
 
 /* ============================================
@@ -279,13 +379,13 @@
    ============================================ */
 
 .chat-message {
-  animation: slideIn 0.3s ease-out;
+  animation: slideIn 0.35s ease-out;
 }
 
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -294,14 +394,38 @@
 }
 
 /* ============================================
+   BOT MESSAGE ENHANCEMENTS
+   ============================================ */
+
+.chat-message.bot,
+.chat-message:not(.user) {
+  border-radius: 20px 20px 20px 6px;
+}
+
+.chat-message.user {
+  border-radius: 20px 20px 6px 20px;
+}
+
+/* ============================================
    CODE BLOCKS STYLING
    ============================================ */
 
 pre, code {
-  background: rgba(17, 17, 17, 0.08) !important;
-  border: 1px solid rgba(17, 17, 17, 0.1);
-  border-radius: 6px;
+  background: rgba(17, 17, 17, 0.06) !important;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 8px;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 0.875rem;
+}
+
+pre {
+  padding: 14px 16px;
+  overflow-x: auto;
+  margin: 12px 0;
+}
+
+code {
+  padding: 2px 6px;
 }
 
 /* ============================================
@@ -312,9 +436,139 @@ a {
   color: #111111;
   text-decoration: underline;
   text-decoration-color: var(--chat--color-primary);
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  transition: all 0.2s ease;
 }
 
 a:hover {
-  color: var(--chat--color-primary);
+  color: #111111;
+  text-decoration-color: #94cc1e;
+  background: rgba(188, 253, 46, 0.15);
+  border-radius: 2px;
+}
+
+/* ============================================
+   LIST STYLING IN MESSAGES
+   ============================================ */
+
+.chat-message ul,
+.chat-message ol {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.chat-message li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.chat-message li::marker {
+  color: #bcfd2e;
+}
+
+/* ============================================
+   HEADINGS IN MESSAGES
+   ============================================ */
+
+.chat-message h1,
+.chat-message h2,
+.chat-message h3,
+.chat-message h4 {
+  color: #111111;
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.chat-message h2 {
+  font-size: 1.1rem;
+  padding-bottom: 6px;
+  border-bottom: 2px solid rgba(188, 253, 46, 0.4);
+}
+
+.chat-message h3 {
+  font-size: 1rem;
+  color: #2a2a2a;
+}
+
+/* ============================================
+   EMOJI ENHANCEMENTS
+   ============================================ */
+
+.chat-message .emoji,
+.chat-message [class*="emoji"] {
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+/* ============================================
+   INITIAL MESSAGE STYLING
+   ============================================ */
+
+.chat-message:first-child {
+  background: linear-gradient(135deg, #ffffff 0%, #fafffe 100%);
+  border-left: 3px solid #bcfd2e;
+}
+
+/* ============================================
+   FILE UPLOAD PREVIEW
+   ============================================ */
+
+.chat-file-preview {
+  border-radius: 12px;
+  border: 2px solid #e9ecef;
+  overflow: hidden;
+}
+
+.chat-file-preview:hover {
+  border-color: #bcfd2e;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 480px) {
+  :root {
+    --chat--window--width: 100%;
+    --chat--window--height: 100%;
+    --chat--window--bottom: 0;
+    --chat--window--right: 0;
+    --chat--window--border-radius: 0;
+  }
+
+  .chat-message {
+    max-width: 90%;
+  }
+}
+
+/* ============================================
+   SEND BUTTON PULSE ANIMATION
+   ============================================ */
+
+.chat-input-send-button {
+  transition: all 0.2s ease;
+}
+
+.chat-input-send-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(188, 253, 46, 0.4);
+}
+
+.chat-input-send-button:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   POWERED BY / FOOTER
+   ============================================ */
+
+.chat-footer {
+  padding: 12px 20px;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+  border-top: 1px solid #e9ecef;
 }
