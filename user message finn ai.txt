@@ -1,0 +1,16 @@
+Username: @{{ $('Receive New Discourse Message').item.json.body.post.username }}
+
+Title to message: {{ $('Receive New Discourse Message').item.json.body.post.topic_title }}
+
+User's message: {{ $('Receive New Discourse Message').item.json.body.post.raw }}
+
+Category: {{ $json.message.content }}
+
+Html from user's query: {{ $('Clean HTML').item.json.cleanedHtml }}
+
+Page attributes:
+{{ $('Clean HTML').item.json.attributeSummary }}
+{{ $('Clean HTML').item.json.detectedScripts }}
+{{ $('Merge').item.json.imageAnalysis.description ? '\n\nScreenshots/Images Analysis:\n' + $('Merge').item.json.imageAnalysis.description : '' }}
+
+For assistance, here is an answer to the user's query that our support team has already provided: {{ $json.message.content }}
