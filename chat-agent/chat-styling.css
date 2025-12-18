@@ -1,0 +1,320 @@
+/**
+ * Finn AI Support Chat - Custom Styling
+ * n8n Chat Widget Theme - Finsweet Brand
+ *
+ * Last updated: 2024
+ * Brand colors: Primary Green #bcfd2e | Secondary Black #111111
+ */
+
+:root {
+  /* ========================================
+     FINSWEET BRAND COLORS
+     ======================================== */
+  --chat--color-primary: #bcfd2e;  /* Finsweet Attributes green */
+  --chat--color-primary-shade-50: #a8e526;
+  --chat--color-primary-shade-100: #94cc1e;
+  --chat--color-secondary: #111111;  /* Finsweet brand black */
+  --chat--color-secondary-shade-50: #2a2a2a;
+  --chat--color-white: #ffffff;
+  --chat--color-light: #f8f9fa;  /* Subtle background */
+  --chat--color-light-shade-50: #e9ecef;
+  --chat--color-light-shade-100: #dee2e6;
+  --chat--color-medium: #6c757d;
+  --chat--color-dark: #111111;  /* Finsweet brand black */
+  --chat--color-disabled: #adb5bd;
+  --chat--color-typing: #495057;
+
+  /* ========================================
+     TYPOGRAPHY - FINSWEET BRAND FONT
+     ======================================== */
+  --chat--font-family: (
+    'Graphik',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Inter',
+    system-ui,
+    Roboto,
+    'Helvetica Neue',
+    sans-serif
+  );
+
+  /* ========================================
+     WINDOW DIMENSIONS
+     ======================================== */
+  --chat--window--width: 420px;
+  --chat--window--height: 640px;
+  --chat--window--bottom: 24px;
+  --chat--window--right: 24px;
+  --chat--window--z-index: 9999;
+  --chat--window--border: none;
+  --chat--window--border-radius: 16px;
+  --chat--window--margin-bottom: 16px;
+  --chat--window--shadow: 0 20px 60px rgba(17, 17, 17, 0.15);
+
+  /* ========================================
+     HEADER STYLES - FINSWEET DARK THEME
+     ======================================== */
+  --chat--header-height: auto;
+  --chat--header--padding: 20px 24px 18px 24px;
+  --chat--header--background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+  --chat--header--color: #ffffff;
+  --chat--header--border-top: none;
+  --chat--header--border-bottom: 2px solid #bcfd2e;
+  --chat--header--border-left: none;
+  --chat--header--border-right: none;
+  --chat--heading--font-size: 1.25rem;
+  --chat--heading--font-weight: 700;
+  --chat--heading--letter-spacing: -0.02em;
+  --chat--subtitle--font-size: 0.85rem;
+  --chat--subtitle--line-height: 1.3;
+  --chat--subtitle--opacity: 0.75;
+  --chat--subtitle--font-weight: 400;
+
+  /* ========================================
+     MESSAGE STYLES
+     ======================================== */
+  --chat--message--font-size: 0.95rem;
+  --chat--message--padding: 16px 20px;
+  --chat--message--border-radius: 18px;
+  --chat--message-line-height: 1.5;
+  --chat--message--margin-bottom: 12px;
+
+  /* Bot Messages - Clean white with subtle border */
+  --chat--message--bot--background: #ffffff;
+  --chat--message--bot--color: #111111;
+  --chat--message--bot--border: 1px solid #e9ecef;
+  --chat--message--bot--shadow: 0 2px 8px rgba(17, 17, 17, 0.08);
+
+  /* User Messages - Finsweet accent color */
+  --chat--message--user--background: #bcfd2e;
+  --chat--message--user--color: #111111;
+  --chat--message--user--border: none;
+  --chat--message--user--font-weight: 500;
+
+  --chat--message--pre--background: rgba(17, 17, 17, 0.05);
+  --chat--messages-list--padding: 20px;
+
+  /* ========================================
+     TOGGLE BUTTON - FINSWEET STYLE
+     ======================================== */
+  --chat--toggle--size: 64px;
+  --chat--toggle--width: var(--chat--toggle--size);
+  --chat--toggle--height: var(--chat--toggle--size);
+  --chat--toggle--border-radius: 50%;
+  --chat--toggle--background: #111111;
+  --chat--toggle--hover--background: #2a2a2a;
+  --chat--toggle--active--background: #111111;
+  --chat--toggle--color: #bcfd2e;
+  --chat--toggle--shadow: 0 8px 32px rgba(17, 17, 17, 0.25);
+
+  /* ========================================
+     INPUT AREA
+     ======================================== */
+  --chat--textarea--height: 52px;
+  --chat--textarea--max-height: 120px;
+  --chat--input--font-size: 0.95rem;
+  --chat--input--border: 1px solid #e9ecef;
+  --chat--input--border-radius: 12px;
+  --chat--input--padding: 16px 20px;
+  --chat--input--background: #ffffff;
+  --chat--input--text-color: #111111;
+  --chat--input--line-height: 1.4;
+  --chat--input--placeholder--font-size: var(--chat--input--font-size);
+  --chat--input--border-active: 2px solid #bcfd2e;
+  --chat--input--left--panel--width: 2.5rem;
+
+  /* ========================================
+     BUTTON STYLES
+     ======================================== */
+  --chat--button--color: #111111;
+  --chat--button--background: #bcfd2e;
+  --chat--button--padding: 12px 20px;
+  --chat--button--border-radius: 8px;
+  --chat--button--font-weight: 500;
+  --chat--button--hover--color: #111111;
+  --chat--button--hover--background: #a8e526;
+  --chat--close--button--color-hover: #111111;
+
+  /* ========================================
+     SEND AND FILE BUTTONS
+     ======================================== */
+  --chat--input--send--button--background: #bcfd2e;
+  --chat--input--send--button--color: #111111;
+  --chat--input--send--button--background-hover: #a8e526;
+  --chat--input--send--button--color-hover: #111111;
+  --chat--input--file--button--background: #f8f9fa;
+  --chat--input--file--button--color: #6c757d;
+  --chat--input--file--button--background-hover: #e9ecef;
+  --chat--input--file--button--color-hover: #111111;
+  --chat--files-spacing: 8px;
+
+  /* ========================================
+     BODY AND FOOTER
+     ======================================== */
+  --chat--body--background: #f8f9fa;
+  --chat--footer--background: #ffffff;
+  --chat--footer--color: #111111;
+  --chat--footer--border-top: 1px solid #e9ecef;
+}
+
+/* ============================================
+   CUSTOM CLASSES OVERRIDE
+   ============================================ */
+
+.chat-message {
+  max-width: 75%;
+  font-weight: 400;
+  box-shadow: var(--chat--message--bot--shadow);
+}
+
+.chat-message.user {
+  font-weight: 500;
+  box-shadow: 0 2px 12px rgba(188, 253, 46, 0.25);
+}
+
+/* ============================================
+   HEADER - FINSWEET BRANDING
+   ============================================ */
+
+.chat-header {
+  background: var(--chat--header--background) !important;
+  position: relative;
+  font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif !important;
+}
+
+.chat-header::before {
+  content: "F";
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  background: #ffffff;
+  color: #111111;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.chat-title {
+  font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif !important;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+  margin-bottom: 2px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.chat-subtitle {
+  font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif !important;
+  opacity: 0.75;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.3;
+}
+
+/* ============================================
+   INPUT STYLING
+   ============================================ */
+
+.chat-input:focus {
+  border-color: var(--chat--color-primary);
+  box-shadow: 0 0 0 3px rgba(188, 253, 46, 0.1);
+}
+
+/* ============================================
+   TOGGLE BUTTON ENHANCEMENT
+   ============================================ */
+
+.chat-toggle {
+  box-shadow: var(--chat--toggle--shadow);
+  transition: all 0.2s ease;
+}
+
+.chat-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(17, 17, 17, 0.3);
+}
+
+/* ============================================
+   TYPING INDICATOR
+   ============================================ */
+
+.typing-indicator {
+  color: var(--chat--color-primary);
+}
+
+/* ============================================
+   SCROLLBAR STYLING (WEBKIT)
+   ============================================ */
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: rgba(17, 17, 17, 0.05);
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(188, 253, 46, 0.3);
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(188, 253, 46, 0.5);
+}
+
+/* ============================================
+   MESSAGE ANIMATIONS
+   ============================================ */
+
+.chat-message {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   CODE BLOCKS STYLING
+   ============================================ */
+
+pre, code {
+  background: rgba(17, 17, 17, 0.08) !important;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 6px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+}
+
+/* ============================================
+   LINKS STYLING
+   ============================================ */
+
+a {
+  color: #111111;
+  text-decoration: underline;
+  text-decoration-color: var(--chat--color-primary);
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--chat--color-primary);
+}
