@@ -14,7 +14,7 @@ Website URL: {{ $('Information Extractor').item.json.output.Website && $('Inform
 {{ $('Clean HTML').item.json.stats.totalFsAttributes > 0 || $('Clean HTML').item.json.stats.productsDetected > 0 ? 'HTML Status: AVAILABLE\n\nCleaned HTML:\n' + $('Clean HTML').item.json.cleanedHtml + '\n\nPage Attributes:\n' + $('Clean HTML').item.json.attributeSummary + '\n\nDetected Scripts:\n' + $('Clean HTML').item.json.detectedScripts : 'HTML Status: [NOT AVAILABLE YET - No valid website URL provided]' }}
 
 === IMAGES ANALYSIS ===
-{{ $('Merge').item.json.extractedImages.hasImages ? 'Images Status: AVAILABLE (' + $('Merge').item.json.extractedImages.count + ' images)\n\nScreenshots/Images Analysis:\n' + $('Merge').item.json.imageAnalysis.description : 'Images Status: [NO IMAGES UPLOADED YET]' }}
+{{ $('Merge').item.json.imageAnalysis?.analyzed ? 'Images Status: AVAILABLE (' + $('Merge').item.json.imageAnalysis.imageCount + ' images)\n\nScreenshots/Images Analysis:\n' + $('Merge').item.json.imageAnalysis.description : 'Images Status: [NO IMAGES UPLOADED YET]' }}
 
 === CONVERSATION CONTEXT ===
 This is a REAL-TIME CHAT conversation. The user may not have provided all information yet.
