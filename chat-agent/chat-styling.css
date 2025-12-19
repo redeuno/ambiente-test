@@ -312,25 +312,30 @@
   border: 1px solid #e9ecef !important;
   box-shadow: 0 4px 12px rgba(17, 17, 17, 0.08) !important;
   padding: 16px 20px !important;
-  max-width: 240px !important;
+  max-width: 200px !important;
   margin-bottom: 14px;
 }
 
-/* Adiciona texto "Finn AI is thinking..." antes do body */
+/* Body do typing - usa flexbox para alinhar texto e bolinhas */
+.chat-message-typing-body {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* Adiciona texto "Finn AI is thinking..." como primeiro elemento */
 .chat-message-typing-body::before {
   content: "Finn AI is thinking...";
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #6c757d;
   font-weight: 500;
-  margin-right: 12px;
+  white-space: nowrap;
   animation: thinkingPulse 2s ease-in-out infinite;
 }
 
-/* Estiliza as bolinhas com cor Finsweet */
+/* ESCONDE as bolinhas padrão do typing */
 .chat-message-typing-circle {
-  background-color: #bcfd2e !important;
-  width: 8px !important;
-  height: 8px !important;
+  display: none !important;
 }
 
 @keyframes thinkingPulse {

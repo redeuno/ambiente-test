@@ -101,10 +101,15 @@ Call with mode: "validate" to compare expectations vs reality, adjust confidence
 - Preliminary confidence with factors
 - Response planning
 
+### ANALYZE mode also returns:
+- **Voice & Tone guidance** (ALWAYS `must_call: true` - tool must be called before ANY response)
+- Perplexity pre-assessment (will confirm in VALIDATE)
+
 ### VALIDATE mode returns:
 - Search validation (expectations vs reality)
 - Confidence adjustment (final score)
-- Perplexity decision
+- **Perplexity decision** (`should_call: true|false` with `search_terms` if needed)
+- **Voice & Tone reminder** (`must_call_tool: true` with focus and key aspects)
 - Quality checklist (5-7 items, MANDATORY)
 - Solution refinement
 - Escalation assessment
@@ -127,26 +132,57 @@ User sends message
     NO ──┼── YES
          │    │
          ▼    ▼
-   Ask for user info   Sufficient technical context?
-   Wait for reply      (product, problem)
+   Ask for user info   Subscription check OK?
+   Wait for reply      (Attributes = Fins+ required)
    Loop back                 │
                         NO ──┼── YES
                              │    │
                              ▼    ▼
-                       Ask question   ┌──────────────────┐
-                       Wait for reply │  ANALYZE MODE    │
-                       Loop back      └────────┬─────────┘
+                       Show CTA   Sufficient technical context?
+                       END        (product, problem)
+                                       │
+                                  NO ──┼── YES
+                                       │    │
+                                       ▼    ▼
+                                 Ask question   ┌──────────────────┐
+                                 Wait for reply │  ANALYZE MODE    │
+                                 Loop back      └────────┬─────────┘
+                                                         │
+                                                         ▼
+                                              🔧 Support Knowledge
+                                              🔧 FAQ Vector
+                                                         │
+                                                         ▼
+                                                ┌──────────────────┐
+                                                │  VALIDATE MODE   │
+                                                └────────┬─────────┘
+                                                         │
+                                                         ▼
+                                      ┌─────────────────────────────┐
+                                      │ perplexity_decision.should_call? │
+                                      └────────┬────────────────────┘
+                                               │
+                                          YES ─┼─ NO
+                                               │   │
+                                               ▼   │
+                                      🔧 Perplexity │
+                                               │   │
+                                               ▼   ▼
+                                      🔧 Voice and Tone Doc ← ALWAYS
                                                │
                                                ▼
-                                        Execute searches
+                                         Craft response
                                                │
                                                ▼
-                                      ┌──────────────────┐
-                                      │  VALIDATE MODE   │
-                                      └────────┬─────────┘
+                                      Low confidence? (≤6)
                                                │
-                                               ▼
-                                        Craft response
+                                          YES ─┼─ NO
+                                               │   │
+                                               ▼   │
+                                      🔧 Escalate │
+                                               │   │
+                                               ▼   ▼
+                                         Send response
 ```
 
 ## EXAMPLE COLLECT OUTPUTS
