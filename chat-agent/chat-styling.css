@@ -250,106 +250,75 @@
 }
 
 /* ============================================
-   🔥 TYPING/THINKING INDICATOR - ANIMATED
+   🔥 TYPING/THINKING INDICATOR
    ============================================ */
 
-.chat-message-typing {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 20px;
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1px solid #e9ecef;
-  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.08);
-  max-width: 200px;
-  margin-bottom: 14px;
-}
+/*
+ * NOTA: O n8n chat widget usa classes específicas para o typing indicator.
+ * Inspecione o elemento no navegador (F12) para ver a classe correta.
+ * Substitua .n8n-chat-typing abaixo pela classe real se necessário.
+ *
+ * Classes comuns do n8n:
+ * - .chat-message-typing
+ * - .n8n-chat-typing
+ * - [data-loading="true"]
+ */
 
-.chat-message-typing::before {
-  content: "Finn AI is thinking";
-  font-size: 0.9rem;
-  color: #6c757d;
-  font-weight: 500;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.chat-message-typing .typing-dots {
-  display: flex;
-  gap: 4px;
-}
-
-.chat-message-typing .typing-dots span {
-  width: 8px;
-  height: 8px;
-  background: #bcfd2e;
-  border-radius: 50%;
-  animation: bounce 1.4s infinite ease-in-out both;
-}
-
-.chat-message-typing .typing-dots span:nth-child(1) {
-  animation-delay: -0.32s;
-}
-
-.chat-message-typing .typing-dots span:nth-child(2) {
-  animation-delay: -0.16s;
-}
-
-.chat-message-typing .typing-dots span:nth-child(3) {
-  animation-delay: 0s;
-}
-
-@keyframes bounce {
-  0%, 80%, 100% {
-    transform: scale(0.6);
-    opacity: 0.5;
-  }
-  40% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-/* n8n native typing indicator enhancement */
-.typing-indicator,
-[class*="typing"] {
+/* Remove o texto padrão do n8n typing e substitui */
+.chat-message-typing,
+.n8n-chat-typing,
+.chat-typing {
+  font-size: 0 !important; /* Esconde texto original */
   display: flex !important;
   align-items: center;
-  gap: 6px;
-  padding: 14px 20px;
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1px solid #e9ecef;
-  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.08);
-  max-width: fit-content;
+  gap: 12px;
+  padding: 16px 20px !important;
+  background: #ffffff !important;
+  border-radius: 20px 20px 20px 6px !important;
+  border: 1px solid #e9ecef !important;
+  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.08) !important;
+  max-width: 220px !important;
+  margin-bottom: 14px;
+  min-height: 50px;
 }
 
-.typing-indicator::before,
-[class*="typing"]::before {
-  content: "Finn AI is thinking...";
-  font-size: 0.875rem;
-  color: #6c757d;
-  font-weight: 500;
-  margin-right: 8px;
-  animation: pulse 2s ease-in-out infinite;
+.chat-message-typing::before,
+.n8n-chat-typing::before,
+.chat-typing::before {
+  content: "Finn AI is thinking..." !important;
+  font-size: 0.9rem !important;
+  color: #6c757d !important;
+  font-weight: 500 !important;
+  white-space: nowrap;
+  animation: thinkingPulse 2s ease-in-out infinite;
 }
 
-.typing-indicator span,
-[class*="typing"] span {
-  width: 8px;
-  height: 8px;
-  background: #bcfd2e;
-  border-radius: 50%;
-  animation: bounce 1.4s infinite ease-in-out both;
+/* Esconde bolinhas originais e spans extras */
+.chat-message-typing span,
+.n8n-chat-typing span,
+.chat-typing span {
+  display: none !important;
+}
+
+/* Animação de pontos via pseudo-elemento */
+.chat-message-typing::after,
+.n8n-chat-typing::after,
+.chat-typing::after {
+  content: "●●●";
+  font-size: 1rem;
+  color: #bcfd2e;
+  letter-spacing: 4px;
+  animation: dotsAnimation 1.4s ease-in-out infinite;
+}
+
+@keyframes thinkingPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes dotsAnimation {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
 }
 
 /* ============================================
