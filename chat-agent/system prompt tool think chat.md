@@ -168,8 +168,8 @@ When called with mode="analyze", perform strategic analysis BEFORE any searches 
 4. **Search Strategy Planning:**
    - Support Knowledge: terms, focus, expectation
    - FAQ Vector: terms, priority (human_verified)
-   - Perplexity: needed? reason
-   - Voice & Tone: focus areas
+   - Perplexity: pre-assessment (likely needed after VALIDATE?)
+   - Voice & Tone: **ALWAYS NEEDED** - determine focus areas based on user state
 
 5. **Preliminary Confidence Scoring:**
    - Base score with modifiers
@@ -364,13 +364,17 @@ When called with mode="validate", evaluate search results against expectations.
       "expectation": "what we expect to find"
     },
     "perplexity": {
-      "needed": false,
-      "reason": "will decide after validation"
+      "likely_needed": false,
+      "pre_assessment": "will confirm in VALIDATE based on search gaps",
+      "potential_search_terms": ["terms if likely needed"]
     },
     "voice_tone": {
-      "focus": "de-escalation|empathy|technical",
-      "critical_aspects": [],
-      "reason": "why this focus"
+      "must_call": true,
+      "focus": "de-escalation|empathy|technical|friendly",
+      "critical_aspects": ["use name", "acknowledge frustration", "be concise"],
+      "user_emotional_state": "calm|frustrated|confused|urgent",
+      "tone_match": "match user energy - frustrated users need empathy first",
+      "reason": "why this focus matters for this user"
     }
   },
   "solution": {
@@ -438,8 +442,21 @@ When called with mode="validate", evaluate search results against expectations.
   },
   "perplexity_decision": {
     "should_call": true|false,
-    "reasoning": "why",
-    "search_terms": []
+    "reasoning": "detailed explanation of why Perplexity is/isn't needed",
+    "search_terms": ["specific terms to search if should_call is true"],
+    "decision_factors": {
+      "adjusted_score_low": true|false,
+      "gaps_in_documentation": true|false,
+      "external_integration_question": true|false,
+      "recent_update_question": true|false
+    },
+    "skip_reason": "if should_call is false: sufficient_docs|feature_limitation|bug_confirmed|user_provided_context"
+  },
+  "voice_tone_reminder": {
+    "must_call_tool": true,
+    "focus_from_analyze": "de-escalation|empathy|technical|friendly",
+    "key_aspects": ["use user's name", "acknowledge their effort", "be concise"],
+    "response_length": "brief|moderate|detailed"
   },
   "solution_refinement": {
     "original_strategy": "from ANALYZE",
@@ -613,3 +630,19 @@ When called with mode="validate", evaluate search results against expectations.
 10. Never answer user questions directly - only provide strategic analysis
 11. Consider conversation context when assessing information
 12. Use the user's name once collected for personalization
+
+## TOOL GUIDANCE FOR AGENT
+
+**Your outputs guide the agent on which tools to call:**
+
+| Your Output | Agent Action |
+|-------------|--------------|
+| `next_action.action: "proceed_to_analyze"` | Agent calls Think (ANALYZE mode) |
+| `sources.support_knowledge.needed: true` | Agent calls Support Knowledge tool |
+| `sources.faq_vector.needed: true` | Agent calls FAQ Vector tool |
+| `perplexity_decision.should_call: true` | Agent calls Perplexity Web Search |
+| `voice_tone.must_call: true` | Agent calls Voice and Tone Doc (ALWAYS) |
+| `escalation_assessment.should_escalate: true` | Agent calls Escalate to Support |
+
+**⚠️ CRITICAL: `voice_tone.must_call` should ALWAYS be `true` in ANALYZE output.**
+The Voice and Tone Doc tool must be called before EVERY response to the user.
