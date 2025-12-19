@@ -92,6 +92,15 @@ Call with mode: "validate" to compare expectations vs reality, adjust confidence
 - `proceed_to_analyze`: ALL user info + sufficient technical context
 - `request_url`: Need staging URL for diagnosis
 - `request_screenshot`: Need visual context
+- `ask_if_resolved`: After solution provided, check if it worked
+- `show_nps`: User confirmed resolution, show NPS question
+- `thank_and_close`: After NPS collected, thank user
+- `finalize_chat`: Trigger Finalize Chat tool to send summary to Slack
+
+### COLLECT mode also returns (for NPS flow):
+- **Resolution detection** (`conversation_phase`, `resolution_signals`, `nps_timing`)
+- Sentiment tracking (`satisfied|neutral|frustrated|confused`)
+- NPS readiness assessment (`ready_for_nps: true|false`)
 
 ### ANALYZE mode returns:
 - Context analysis with conversation summary
@@ -183,6 +192,39 @@ User sends message
                                                │   │
                                                ▼   ▼
                                          Send response
+                                               │
+                                               ▼
+                                ┌──────────────────────────┐
+                                │  RESOLUTION & NPS FLOW   │
+                                └────────┬─────────────────┘
+                                         │
+                                         ▼
+                        resolution_detection.conversation_phase
+                              = "solution_provided"?
+                                         │
+                                    YES ─┼─ NO (continue)
+                                         │
+                                         ▼
+                             Ask: "Did this solve it?"
+                                         │
+                                         ▼
+                              User confirms YES?
+                                         │
+                                    YES ─┼─ NO (loop back)
+                                         │
+                                         ▼
+                                Show NPS question
+                                         │
+                                         ▼
+                              User provides score?
+                                         │
+                                    YES ─┼─ SKIP
+                                         │    │
+                                         ▼    ▼
+                              🔧 Finalize Chat Tool
+                                         │
+                                         ▼
+                                    END SESSION
 ```
 
 ## EXAMPLE COLLECT OUTPUTS
