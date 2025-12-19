@@ -251,74 +251,40 @@
 
 /* ============================================
    🔥 TYPING/THINKING INDICATOR
+   Classes: .chat-message-typing, .chat-message-typing-body, .chat-message-typing-circle
    ============================================ */
 
-/*
- * NOTA: O n8n chat widget usa classes específicas para o typing indicator.
- * Inspecione o elemento no navegador (F12) para ver a classe correta.
- * Substitua .n8n-chat-typing abaixo pela classe real se necessário.
- *
- * Classes comuns do n8n:
- * - .chat-message-typing
- * - .n8n-chat-typing
- * - [data-loading="true"]
- */
-
-/* Remove o texto padrão do n8n typing e substitui */
-.chat-message-typing,
-.n8n-chat-typing,
-.chat-typing {
-  font-size: 0 !important; /* Esconde texto original */
-  display: flex !important;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px !important;
+/* Container principal do typing indicator */
+.chat-message-typing {
   background: #ffffff !important;
   border-radius: 20px 20px 20px 6px !important;
   border: 1px solid #e9ecef !important;
   box-shadow: 0 4px 12px rgba(17, 17, 17, 0.08) !important;
-  max-width: 220px !important;
+  padding: 16px 20px !important;
+  max-width: 240px !important;
   margin-bottom: 14px;
-  min-height: 50px;
 }
 
-.chat-message-typing::before,
-.n8n-chat-typing::before,
-.chat-typing::before {
-  content: "Finn AI is thinking..." !important;
-  font-size: 0.9rem !important;
-  color: #6c757d !important;
-  font-weight: 500 !important;
-  white-space: nowrap;
+/* Adiciona texto "Finn AI is thinking..." antes do body */
+.chat-message-typing-body::before {
+  content: "Finn AI is thinking...";
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+  margin-right: 12px;
   animation: thinkingPulse 2s ease-in-out infinite;
 }
 
-/* Esconde bolinhas originais e spans extras */
-.chat-message-typing span,
-.n8n-chat-typing span,
-.chat-typing span {
-  display: none !important;
-}
-
-/* Animação de pontos via pseudo-elemento */
-.chat-message-typing::after,
-.n8n-chat-typing::after,
-.chat-typing::after {
-  content: "●●●";
-  font-size: 1rem;
-  color: #bcfd2e;
-  letter-spacing: 4px;
-  animation: dotsAnimation 1.4s ease-in-out infinite;
+/* Estiliza as bolinhas com cor Finsweet */
+.chat-message-typing-circle {
+  background-color: #bcfd2e !important;
+  width: 8px !important;
+  height: 8px !important;
 }
 
 @keyframes thinkingPulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
-}
-
-@keyframes dotsAnimation {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
 }
 
 /* ============================================
