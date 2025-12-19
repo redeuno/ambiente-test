@@ -19,7 +19,11 @@ Call with mode: "validate" to compare expectations vs reality, adjust confidence
   "mode": "collect",
   "current_message": "user's latest message",
   "collected_data": {
-    "username": "if provided or [NOT PROVIDED]",
+    "user_name": "if provided or [NOT PROVIDED]",
+    "fins_plus_subscriber": "yes|no|[NOT ASKED]",
+    "forum_account": "yes|no|[NOT ASKED]",
+    "forum_username": "if provided or [NOT PROVIDED]",
+    "user_email": "if provided or [NOT PROVIDED]",
     "category": "if identified or [NOT IDENTIFIED]",
     "website_url": "if provided (valid URL) or [NOT PROVIDED]",
     "html_available": true|false,
@@ -73,14 +77,19 @@ Call with mode: "validate" to compare expectations vs reality, adjust confidence
 
 ### COLLECT mode returns:
 - Conversation assessment (turn number, message type, user intent)
+- User identification status (name, fins+ status, forum account, username, email)
 - Collected data status (what we have vs don't have)
-- Completeness check (minimum met? missing critical info?)
-- Next action (ask_question | proceed_to_analyze | request_url)
-- Conversation guidance (tone, what to acknowledge)
+- Completeness check (user identification complete? technical context ready?)
+- Next action (ask_user_name | ask_fins_forum_status | ask_forum_details | proceed_to_analyze | etc.)
+- Conversation guidance (tone, what to acknowledge, use name)
 
 **Key decision: `next_action.action`**
-- `ask_question`: Need more info, includes suggested question
-- `proceed_to_analyze`: Have enough context, continue to ANALYZE
+- `ask_user_name`: First priority - need user's name for personalization
+- `ask_fins_forum_status`: Need to know if Fins+ subscriber and if on forum
+- `ask_forum_details`: If on forum, need username and email
+- `ask_product`: User info complete, need to know which product
+- `ask_problem`: Need more details about the issue
+- `proceed_to_analyze`: ALL user info + sufficient technical context
 - `request_url`: Need staging URL for diagnosis
 - `request_screenshot`: Need visual context
 
@@ -112,92 +121,149 @@ User sends message
 └────────┬─────────┘
          │
          ▼
-   Sufficient context?
+   User identification complete?
+   (name, fins+, forum, username, email)
          │
     NO ──┼── YES
          │    │
          ▼    ▼
-   Ask question   ┌──────────────────┐
-   Wait for reply │  ANALYZE MODE    │
-   Loop back      └────────┬─────────┘
-                           │
-                           ▼
-                    Execute searches
-                           │
-                           ▼
-                  ┌──────────────────┐
-                  │  VALIDATE MODE   │
-                  └────────┬─────────┘
-                           │
-                           ▼
-                    Craft response
+   Ask for user info   Sufficient technical context?
+   Wait for reply      (product, problem)
+   Loop back                 │
+                        NO ──┼── YES
+                             │    │
+                             ▼    ▼
+                       Ask question   ┌──────────────────┐
+                       Wait for reply │  ANALYZE MODE    │
+                       Loop back      └────────┬─────────┘
+                                               │
+                                               ▼
+                                        Execute searches
+                                               │
+                                               ▼
+                                      ┌──────────────────┐
+                                      │  VALIDATE MODE   │
+                                      └────────┬─────────┘
+                                               │
+                                               ▼
+                                        Craft response
 ```
 
 ## EXAMPLE COLLECT OUTPUTS
 
-**User: "hi"**
+**User: "hi" - ALWAYS ask for name first**
 ```json
 {
   "mode": "collect",
   "completeness_check": {
-    "minimum_met": false,
-    "missing_critical": ["category", "problem_description"]
+    "user_identification_complete": false,
+    "missing_user_info": ["user_name", "fins_plus_status", "forum_account"],
+    "technical_context_ready": false,
+    "missing_technical": ["category", "problem_description"]
   },
   "next_action": {
-    "action": "ask_question",
-    "question_to_ask": "Hey there! 👋 What Finsweet product are you working with today?"
+    "action": "ask_user_name",
+    "question_to_ask": "Hey there! 👋 I'm Finn AI, happy to help! Before we dive in, what's your name so I can personalize our chat? 🙂"
   }
 }
 ```
 
-**User: "my CMS filter isn't working"**
+**User: "I'm John" - Got name, now ask about Fins+/forum**
 ```json
 {
   "mode": "collect",
   "collected_data": {
-    "category": {
-      "status": "identified",
-      "value": "attributes_v2",
-      "indicators": ["CMS filter mentioned"]
-    },
-    "problem": {
-      "status": "vague",
-      "summary": "CMS filter not working - needs more detail"
+    "user_identification": {
+      "user_name": { "status": "provided", "value": "John" },
+      "fins_plus_subscriber": { "status": "not_asked" },
+      "forum_account": { "status": "not_asked" }
     }
   },
   "completeness_check": {
-    "minimum_met": false,
-    "missing_critical": ["problem_description"]
+    "user_identification_complete": false,
+    "missing_user_info": ["fins_plus_status", "forum_account"]
   },
   "next_action": {
-    "action": "ask_question",
-    "question_to_ask": "Got it, you're working with CMS Filter! Could you tell me what's happening? Is it not filtering at all, or is something specific not working as expected?"
+    "action": "ask_fins_forum_status",
+    "question_to_ask": "Nice to meet you, John! Quick question - are you a Fins+ subscriber? And do you have an account on our forum (forum.finsweet.com)?"
   }
 }
 ```
 
-**User: "my CMS filter shows wrong items when I click on category buttons"**
+**User: "Yes I'm Fins+ and on the forum" - Need forum details**
 ```json
 {
   "mode": "collect",
   "collected_data": {
-    "category": {
-      "status": "identified",
-      "value": "attributes_v2",
-      "confidence": "high"
-    },
-    "problem": {
-      "status": "clear",
-      "summary": "CMS filter showing wrong items when clicking category buttons"
+    "user_identification": {
+      "user_name": { "status": "provided", "value": "John" },
+      "fins_plus_subscriber": { "status": "yes", "value": true },
+      "forum_account": { "status": "yes", "value": true },
+      "forum_username": { "status": "not_provided" },
+      "user_email": { "status": "not_provided" }
     }
   },
   "completeness_check": {
-    "minimum_met": true,
+    "user_identification_complete": false,
+    "missing_user_info": ["forum_username", "email"]
+  },
+  "next_action": {
+    "action": "ask_forum_details",
+    "question_to_ask": "Perfect! What's your forum username and the email associated with your account? This helps us keep track of your support history."
+  }
+}
+```
+
+**User identification complete, ready for technical questions:**
+```json
+{
+  "mode": "collect",
+  "collected_data": {
+    "user_identification": {
+      "user_name": { "status": "provided", "value": "John" },
+      "fins_plus_subscriber": { "status": "yes", "value": true },
+      "forum_account": { "status": "yes", "value": true },
+      "forum_username": { "status": "provided", "value": "john_dev" },
+      "user_email": { "status": "provided", "value": "john@example.com" },
+      "identification_complete": true
+    }
+  },
+  "completeness_check": {
+    "user_identification_complete": true,
+    "technical_context_ready": false,
+    "missing_technical": ["category", "problem_description"]
+  },
+  "next_action": {
+    "action": "ask_product",
+    "question_to_ask": "Thanks John! Now, what Finsweet product are you working with today?"
+  }
+}
+```
+
+**All info complete, ready for ANALYZE:**
+```json
+{
+  "mode": "collect",
+  "collected_data": {
+    "user_identification": {
+      "user_name": { "status": "provided", "value": "John" },
+      "fins_plus_subscriber": { "status": "yes", "value": true },
+      "forum_account": { "status": "yes", "value": true },
+      "forum_username": { "status": "provided", "value": "john_dev" },
+      "user_email": { "status": "provided", "value": "john@example.com" },
+      "identification_complete": true
+    },
+    "category": { "status": "identified", "value": "attributes_v2" },
+    "problem": { "status": "clear", "summary": "CMS filter showing wrong items when clicking category buttons" }
+  },
+  "completeness_check": {
+    "user_identification_complete": true,
+    "technical_context_ready": true,
     "can_proceed_to_analyze": true
   },
   "next_action": {
     "action": "proceed_to_analyze",
-    "reasoning": "Have clear product (attributes/CMS filter) and problem description"
+    "reasoning": "User identification complete (John, Fins+, forum: john_dev). Have product (attributes) and clear problem description."
   }
 }
 ```
