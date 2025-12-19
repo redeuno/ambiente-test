@@ -2,25 +2,29 @@
  * Finn AI Support Chat - Custom Styling
  * n8n Chat Widget Theme - Finsweet Brand
  *
- * Last updated: 2024
+ * Last updated: 2024-12
  * Brand colors: Primary Green #bcfd2e | Secondary Black #111111
  */
+
+/* ============================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   ============================================ */
 
 :root {
   /* ========================================
      FINSWEET BRAND COLORS
      ======================================== */
-  --chat--color-primary: #bcfd2e;  /* Finsweet Attributes green */
+  --chat--color-primary: #bcfd2e;
   --chat--color-primary-shade-50: #a8e526;
   --chat--color-primary-shade-100: #94cc1e;
-  --chat--color-secondary: #111111;  /* Finsweet brand black */
+  --chat--color-secondary: #111111;
   --chat--color-secondary-shade-50: #2a2a2a;
   --chat--color-white: #ffffff;
-  --chat--color-light: #f8f9fa;  /* Subtle background */
+  --chat--color-light: #f8f9fa;
   --chat--color-light-shade-50: #e9ecef;
   --chat--color-light-shade-100: #dee2e6;
   --chat--color-medium: #6c757d;
-  --chat--color-dark: #111111;  /* Finsweet brand black */
+  --chat--color-dark: #111111;
   --chat--color-disabled: #adb5bd;
   --chat--color-typing: #495057;
 
@@ -67,16 +71,16 @@
   --chat--message--font-size: 0.95rem;
   --chat--message--padding: 16px 20px;
   --chat--message--border-radius: 20px;
-  --chat--message-line-height: 1.6;
+  --chat--message--line-height: 1.6;
   --chat--message--margin-bottom: 14px;
 
-  /* Bot Messages - Clean white with subtle border */
+  /* Bot Messages */
   --chat--message--bot--background: #ffffff;
   --chat--message--bot--color: #111111;
   --chat--message--bot--border: 1px solid #e9ecef;
   --chat--message--bot--shadow: 0 4px 12px rgba(17, 17, 17, 0.08);
 
-  /* User Messages - Finsweet accent color */
+  /* User Messages */
   --chat--message--user--background: #bcfd2e;
   --chat--message--user--color: #111111;
   --chat--message--user--border: none;
@@ -149,19 +153,32 @@
 }
 
 /* ============================================
-   CUSTOM CLASSES OVERRIDE
+   MESSAGES - BASE STYLES (CONSOLIDATED)
    ============================================ */
 
 .chat-message {
   max-width: 85%;
   font-weight: 400;
-  box-shadow: var(--chat--message--bot--shadow);
   font-family: var(--chat--font-family);
+  box-shadow: var(--chat--message--bot--shadow);
+  animation: slideIn 0.35s ease-out;
 }
 
 .chat-message.user {
   font-weight: 500;
   box-shadow: 0 4px 16px rgba(188, 253, 46, 0.3);
+  border-radius: 20px 20px 6px 20px;
+}
+
+.chat-message.bot,
+.chat-message:not(.user) {
+  border-radius: 20px 20px 20px 6px;
+}
+
+/* Initial/Welcome message styling */
+.chat-message:first-child:not(.user) {
+  background: linear-gradient(135deg, #ffffff 0%, #fafffe 100%);
+  border-left: 3px solid #bcfd2e;
 }
 
 /* ============================================
@@ -189,7 +206,7 @@
   pointer-events: none;
 }
 
-/* Finsweet Logo */
+/* Finsweet Logo with fallback */
 .chat-header::after {
   content: "";
   position: absolute;
@@ -197,6 +214,7 @@
   right: 24px;
   width: 48px;
   height: 48px;
+  background-color: #1a1a1a;
   background-image: url('https://dub1.discourse-cdn.com/flex013/user_avatar/forum.finsweet.com/system/144/210_2.png');
   background-size: cover;
   background-position: center;
@@ -247,11 +265,6 @@
   animation: pulse 2s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(188, 253, 46, 0.6); }
-  50% { opacity: 0.7; box-shadow: 0 0 12px rgba(188, 253, 46, 0.8); }
-}
-
 .chat-subtitle {
   font-family: var(--chat--font-family) !important;
   opacity: 1;
@@ -269,7 +282,7 @@
    ============================================ */
 
 .chat-input {
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .chat-input:focus {
@@ -288,7 +301,7 @@
 
 .chat-toggle {
   box-shadow: var(--chat--toggle--shadow);
-  transition: all 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .chat-toggle:hover {
@@ -301,11 +314,9 @@
 }
 
 /* ============================================
-   🔥 TYPING/THINKING INDICATOR
-   Classes: .chat-message-typing, .chat-message-typing-body, .chat-message-typing-circle
+   TYPING/THINKING INDICATOR
    ============================================ */
 
-/* Container principal do typing indicator */
 .chat-message-typing {
   background: #ffffff !important;
   border-radius: 20px 20px 20px 6px !important;
@@ -316,14 +327,12 @@
   margin-bottom: 14px;
 }
 
-/* Body do typing - usa flexbox para alinhar texto e bolinhas */
 .chat-message-typing-body {
   display: flex !important;
   align-items: center !important;
   gap: 12px !important;
 }
 
-/* Adiciona texto "Finn AI is thinking..." como primeiro elemento */
 .chat-message-typing-body::before {
   content: "Finn AI is thinking...";
   font-size: 0.85rem;
@@ -333,20 +342,22 @@
   animation: thinkingPulse 2s ease-in-out infinite;
 }
 
-/* ESCONDE as bolinhas padrão do typing */
+/* Hide default typing dots */
 .chat-message-typing-circle {
   display: none !important;
 }
 
-@keyframes thinkingPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
 /* ============================================
-   SCROLLBAR STYLING (WEBKIT)
+   SCROLLBAR STYLING
    ============================================ */
 
+/* Firefox */
+.chat-messages {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(188, 253, 46, 0.4) transparent;
+}
+
+/* Webkit (Chrome, Safari, Edge) */
 .chat-messages::-webkit-scrollbar {
   width: 6px;
 }
@@ -366,73 +377,49 @@
 }
 
 /* ============================================
-   MESSAGE ANIMATIONS
+   CODE BLOCKS STYLING (SCOPED TO CHAT)
    ============================================ */
 
-.chat-message {
-  animation: slideIn 0.35s ease-out;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ============================================
-   BOT MESSAGE ENHANCEMENTS
-   ============================================ */
-
-.chat-message.bot,
-.chat-message:not(.user) {
-  border-radius: 20px 20px 20px 6px;
-}
-
-.chat-message.user {
-  border-radius: 20px 20px 6px 20px;
-}
-
-/* ============================================
-   CODE BLOCKS STYLING
-   ============================================ */
-
-pre, code {
-  background: rgba(17, 17, 17, 0.06) !important;
+.chat-message pre,
+.chat-message code {
+  background: rgba(17, 17, 17, 0.06);
   border: 1px solid rgba(17, 17, 17, 0.08);
   border-radius: 8px;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   font-size: 0.875rem;
 }
 
-pre {
+.chat-message pre {
   padding: 14px 16px;
   overflow-x: auto;
   margin: 12px 0;
 }
 
-code {
+.chat-message code {
   padding: 2px 6px;
 }
 
+/* Inline code inside pre should not have extra styling */
+.chat-message pre code {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
 /* ============================================
-   LINKS STYLING
+   LINKS STYLING (SCOPED TO CHAT)
    ============================================ */
 
-a {
+.chat-message a {
   color: #111111;
   text-decoration: underline;
   text-decoration-color: var(--chat--color-primary);
   text-underline-offset: 3px;
   text-decoration-thickness: 2px;
-  transition: all 0.2s ease;
+  transition: text-decoration-color 0.2s ease, background 0.2s ease;
 }
 
-a:hover {
+.chat-message a:hover {
   color: #111111;
   text-decoration-color: #94cc1e;
   background: rgba(188, 253, 46, 0.15);
@@ -495,15 +482,6 @@ a:hover {
 }
 
 /* ============================================
-   INITIAL MESSAGE STYLING
-   ============================================ */
-
-.chat-message:first-child {
-  background: linear-gradient(135deg, #ffffff 0%, #fafffe 100%);
-  border-left: 3px solid #bcfd2e;
-}
-
-/* ============================================
    FILE UPLOAD PREVIEW
    ============================================ */
 
@@ -511,10 +489,88 @@ a:hover {
   border-radius: 12px;
   border: 2px solid #e9ecef;
   overflow: hidden;
+  transition: border-color 0.2s ease;
 }
 
 .chat-file-preview:hover {
   border-color: #bcfd2e;
+}
+
+/* ============================================
+   SEND BUTTON
+   ============================================ */
+
+.chat-input-send-button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-input-send-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(188, 253, 46, 0.4);
+}
+
+.chat-input-send-button:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.chat-footer {
+  padding: 12px 20px;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+  border-top: 1px solid #e9ecef;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(188, 253, 46, 0.6);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 12px rgba(188, 253, 46, 0.8);
+  }
+}
+
+@keyframes thinkingPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-message,
+  .chat-toggle,
+  .chat-input,
+  .chat-input-send-button,
+  .chat-file-preview,
+  .chat-title::before,
+  .chat-message-typing-body::before {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* ============================================
@@ -533,33 +589,11 @@ a:hover {
   .chat-message {
     max-width: 90%;
   }
-}
 
-/* ============================================
-   SEND BUTTON PULSE ANIMATION
-   ============================================ */
-
-.chat-input-send-button {
-  transition: all 0.2s ease;
-}
-
-.chat-input-send-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(188, 253, 46, 0.4);
-}
-
-.chat-input-send-button:active {
-  transform: scale(0.95);
-}
-
-/* ============================================
-   POWERED BY / FOOTER
-   ============================================ */
-
-.chat-footer {
-  padding: 12px 20px;
-  font-size: 0.75rem;
-  color: #9ca3af;
-  text-align: center;
-  border-top: 1px solid #e9ecef;
+  .chat-header::after {
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    right: 16px;
+  }
 }
