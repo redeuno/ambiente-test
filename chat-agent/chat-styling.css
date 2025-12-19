@@ -169,48 +169,99 @@
    ============================================ */
 
 .chat-header {
-  background: var(--chat--header--background) !important;
+  background: linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 50%, #111111 100%) !important;
   position: relative;
   font-family: var(--chat--font-family) !important;
+  padding: 28px 24px 24px 24px !important;
+  border-bottom: none !important;
+  overflow: hidden;
 }
 
+/* Subtle gradient overlay for depth */
 .chat-header::before {
-  content: "F";
+  content: "";
   position: absolute;
-  top: 22px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top right, rgba(188, 253, 46, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Finsweet Logo */
+.chat-header::after {
+  content: "";
+  position: absolute;
+  top: 24px;
   right: 24px;
-  width: 40px;
-  height: 40px;
-  background: #ffffff;
-  color: #111111;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--chat--font-family);
-  font-weight: 800;
-  font-size: 22px;
-  letter-spacing: -0.02em;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 48px;
+  height: 48px;
+  background-image: url('https://dub1.discourse-cdn.com/flex013/user_avatar/forum.finsweet.com/system/144/210_2.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    0 0 0 2px rgba(188, 253, 46, 0.2);
+  z-index: 1;
+}
+
+/* Green accent line at bottom */
+.chat-header-content {
+  position: relative;
+}
+
+.chat-header-content::after {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #bcfd2e 0%, rgba(188, 253, 46, 0.3) 100%);
 }
 
 .chat-title {
   font-family: var(--chat--font-family) !important;
   font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: -0.025em;
-  margin-bottom: 4px;
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
   color: #ffffff;
   line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+
+/* Green dot indicator - online status */
+.chat-title::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #bcfd2e;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 8px rgba(188, 253, 46, 0.6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(188, 253, 46, 0.6); }
+  50% { opacity: 0.7; box-shadow: 0 0 12px rgba(188, 253, 46, 0.8); }
 }
 
 .chat-subtitle {
   font-family: var(--chat--font-family) !important;
-  opacity: 0.85;
-  font-size: 0.9rem;
+  opacity: 1;
+  font-size: 0.85rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.4;
+  position: relative;
+  z-index: 1;
+  padding-left: 18px;
 }
 
 /* ============================================
