@@ -671,12 +671,14 @@ ESCALATION PATH (from step 14)
 ═══════════════════════════════════════════════════════════════════
 
 14a. 🔧 TOOL: Escalate to Support
+     → Sends 🚨 IMMEDIATE ALERT to Slack (priority, brief summary)
      ↓
 14b. Notify user that human support will follow up
      ↓
 14c. 🔧 TOOL: Finalize Chat (escalation summary, no NPS)
+     → Sends 🔴 COMPLETE SUMMARY to Slack (user info, attempts, reason)
      ↓
-14d. END - Chat escalated
+14d. END - Chat escalated (2 Slack messages sent)
 ```
 
 ### TOOL CALLING CHECKLIST

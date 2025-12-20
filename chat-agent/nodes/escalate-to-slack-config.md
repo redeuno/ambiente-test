@@ -1,6 +1,43 @@
 # Escalate to Support - Configuração Completa
 
-## Arquitetura
+## Arquitetura (UPDATED - December 2024)
+
+### DOIS TIPOS DE MENSAGEM SLACK
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ MENSAGEM 1: ALERTA IMEDIATO (Escalate to Support)              │
+│                                                                 │
+│ 🚨 *Finn AI - Escalation Request*                              │
+│ Priority: HIGH 🔴                                               │
+│ Product: CMS Filter                                             │
+│ Issue: Brief summary...                                         │
+│ Reason: Why escalating...                                       │
+│                                                                 │
+│ → Enviado IMEDIATAMENTE quando escalação é triggerada           │
+│ → Foco em URGÊNCIA e PRIORIDADE                                │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ MENSAGEM 2: RESUMO COMPLETO (Finalize Chat)                    │
+│                                                                 │
+│ 🔴 *CHAT ESCALATED TO SUPPORT*                                 │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━                                  │
+│ 👤 User: Maria                                                  │
+│ 📧 maria@email.com | @maria_dev                                 │
+│ 🏷️ Fins+: Yes                                                   │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━                                  │
+│ 🛠️ Product: CMS Nest (Attributes)                               │
+│ ❓ Problem: Detailed description...                             │
+│ 🔍 Attempted: Solutions tried...                                │
+│ ⚠️ Escalation Reason: Why...                                    │
+│                                                                 │
+│ → Enviado LOGO APÓS o alerta imediato                          │
+│ → Foco em DOCUMENTAÇÃO COMPLETA                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Fluxo de Nodes
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -10,27 +47,28 @@
 │  - Think Tool                                                   │
 │  - Finsweet Support Knowledge                                   │
 │  - FAQ Vector Tool                                              │
-│  - Escalate to Support ←── ESTA TOOL                           │
+│  - Escalate to Support ←── ALERTA IMEDIATO                     │
+│  - Finalize Chat ←── RESUMO COMPLETO (SEMPRE ao final)         │
 │                                                                 │
 └─────────────────────┬───────────────────────────────────────────┘
                       │
-                      │ Chama quando não consegue ajudar
-                      ▼
+        ┌─────────────┴─────────────┐
+        ▼                           ▼
+┌───────────────────┐     ┌───────────────────┐
+│ Escalate Support  │     │  Finalize Chat    │
+│ (Alerta Imediato) │     │ (Resumo Completo) │
+└────────┬──────────┘     └────────┬──────────┘
+         │                         │
+         ▼                         ▼
+┌───────────────────┐     ┌───────────────────┐
+│ parse-escalation  │     │ format-chat-summ  │
+│ -json.js          │     │ ary.js            │
+└────────┬──────────┘     └────────┬──────────┘
+         │                         │
+         ▼                         ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                    SUB-AGENTE: Escalation                       │
-│                                                                 │
-│  Recebe: summary, context, reason                               │
-│  Formata: mensagem estruturada                                  │
-│  Chama: Slack Notification Workflow                             │
-│                                                                 │
-└─────────────────────┬───────────────────────────────────────────┘
-                      │
-                      ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                    WORKFLOW: Slack Notification                 │
-│                                                                 │
-│  [Trigger] → [Slack Node] → [Return Success]                    │
-│                                                                 │
+│                    MESMO CANAL SLACK                            │
+│                    #suporte-finn-ai                             │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
