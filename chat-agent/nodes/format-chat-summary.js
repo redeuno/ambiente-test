@@ -1,8 +1,18 @@
 /**
- * Format Chat Summary for Slack
+ * Format Chat Summary for Slack - COMPLETE SUMMARY
  *
- * This Code Node receives the output from the Finalize Chat tool
+ * STATUS: ACTIVE (unified formatter for ALL chat summaries)
+ *
+ * This Code Node receives output from the Finalize Chat tool
  * and formats it for sending to the Slack channel.
+ *
+ * HANDLES BOTH:
+ * - ✅ RESOLVED chats (with NPS feedback)
+ * - 🔴 ESCALATED chats (with attempted solutions)
+ *
+ * WORKFLOW:
+ * - Resolved chats: Finalize Chat → THIS NODE → Slack (1 message)
+ * - Escalated chats: Finalize Chat → THIS NODE → Slack (after immediate alert)
  *
  * Input: JSON from Finalize Chat tool
  * Output: Formatted Slack message blocks

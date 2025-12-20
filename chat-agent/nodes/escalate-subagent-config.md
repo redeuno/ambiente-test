@@ -1,6 +1,6 @@
 # Configuração Completa: Sub-Agente Escalate to Support
 
-## Arquitetura Atual
+## Arquitetura Atual (UPDATED - December 2024)
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -12,26 +12,22 @@
 │  ├── FAQ Vector Tool                                           │
 │  ├── Perplexity Web Search                                     │
 │  ├── Voice and Tone Doc                                        │
-│  └── escalate_to_support (sub-agente) ←── CONFIGURAR           │
+│  ├── escalate_to_support (sub-agente) ←── ALERTA IMEDIATO      │
+│  └── finalize_chat (sub-agente) ←── RESUMO COMPLETO            │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                    ESCALATE_TO_SUPPORT (Sub-Agente)             │
-│                                                                 │
-│  Tools:                                                         │
-│  └── Call n8n Workflow Slack ←── CONFIGURAR                    │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                    WORKFLOW: Slack Notification                 │
-│                                                                 │
-│  [Execute Workflow Trigger] → [Slack Node] → [Return]          │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+
+## FLUXO DE MENSAGENS SLACK:
+
+RESOLVED CHATS (1 mensagem):
+────────────────────────────────────────────────────────────────────
+User confirms → Finalize Chat → format-chat-summary.js → Slack ✅
+
+ESCALATED CHATS (2 mensagens):
+────────────────────────────────────────────────────────────────────
+1. Escalate to Support → 🚨 URGENT ALERT → Slack (imediato)
+2. Finalize Chat → 🔴 COMPLETE SUMMARY → Slack (logo após)
+
 ```
 
 ---
@@ -225,7 +221,28 @@ cc: <@U_LUIS_ID> <@U_PEDRO_ID>
 
 ---
 
-## PARTE 5: Não precisa mudar o System Prompt Principal
+## PARTE 5: Fluxo Completo com Finalize Chat
+
+**IMPORTANTE:** Após chamar `escalate_to_support`, o agente TAMBÉM deve chamar `finalize_chat` para enviar o resumo completo.
+
+### Sequência para Escalação:
+
+```
+1. Agente detecta que não consegue resolver
+   ↓
+2. Chama escalate_to_support (ALERTA IMEDIATO)
+   → Envia 🚨 para Slack com prioridade
+   ↓
+3. Informa usuário que suporte foi acionado
+   ↓
+4. Chama finalize_chat (RESUMO COMPLETO)
+   → Envia 🔴 ESCALATED summary com:
+   - User info (nome, email, forum, Fins+)
+   - Problema detalhado
+   - Soluções tentadas
+   - Razão da escalação
+   - Tempo estimado
+```
 
 O system prompt do **Finn Support Agent** já está configurado corretamente com a referência à tool de escalonamento. A seção relevante já diz:
 

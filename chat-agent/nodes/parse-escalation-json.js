@@ -1,5 +1,18 @@
-// Parse Escalation JSON for Slack
-// Add this Code node BEFORE the Slack node
+/**
+ * Parse Escalation JSON for Slack - IMMEDIATE ALERT
+ *
+ * STATUS: ACTIVE (for immediate escalation alerts)
+ *
+ * This node formats the IMMEDIATE escalation alert.
+ * For COMPLETE chat summaries (both resolved and escalated),
+ * use format-chat-summary.js instead.
+ *
+ * WORKFLOW:
+ * - Escalated chats: This node (🚨 alert) + format-chat-summary.js (🔴 summary)
+ * - Resolved chats: Only format-chat-summary.js (✅ summary)
+ *
+ * Add this Code node BEFORE the Slack node in Escalate to Support flow.
+ */
 
 const rawQuery = $input.first().json.query;
 
