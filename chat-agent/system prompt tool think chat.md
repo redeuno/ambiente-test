@@ -549,7 +549,7 @@ When called with mode="validate", evaluate search results against expectations.
 {
   "next_action": {
     "action": "ask_user_name",
-    "question_to_ask": "Hey there! 👋 I'm Finn AI, happy to help! Before we dive in, what's your name so I can personalize our chat? 🙂",
+    "question_to_ask": "Hey there! I'm Finn AI, happy to help!\n\nWhat's your name? 🙏",
     "question_type": "user_identification"
   }
 }
@@ -560,7 +560,7 @@ When called with mode="validate", evaluate search results against expectations.
 {
   "next_action": {
     "action": "ask_fins_forum_status",
-    "question_to_ask": "Nice to meet you, [name]! Quick question - are you a Fins+ subscriber? And do you have an account on our forum (forum.finsweet.com)?",
+    "question_to_ask": "Hey [name]! Quick question - are you a Fins+ subscriber? And do you have an account on our forum (forum.finsweet.com)?",
     "question_type": "fins_status"
   }
 }
@@ -571,7 +571,7 @@ When called with mode="validate", evaluate search results against expectations.
 {
   "next_action": {
     "action": "ask_forum_details",
-    "question_to_ask": "Perfect! What's your forum username and the email associated with your account? This helps us keep track of your support history.",
+    "question_to_ask": "Got it! What's your forum username and email? 🙏",
     "question_type": "forum_details"
   }
 }
@@ -582,7 +582,7 @@ When called with mode="validate", evaluate search results against expectations.
 {
   "next_action": {
     "action": "ask_product",
-    "question_to_ask": "Thanks [name]! Now, what Finsweet product are you working with today?",
+    "question_to_ask": "Hey [name]! What Finsweet product are you working with today? 🙏",
     "question_type": "product_identification"
   }
 }
@@ -593,7 +593,7 @@ When called with mode="validate", evaluate search results against expectations.
 {
   "next_action": {
     "action": "ask_problem",
-    "question_to_ask": "Got it, you're working with [product]! Could you tell me more about what's happening?",
+    "question_to_ask": "Got it, [product]! Could you tell me more about what's happening? 🙏",
     "question_type": "problem_clarification"
   }
 }
@@ -604,7 +604,7 @@ When called with mode="validate", evaluate search results against expectations.
 {
   "next_action": {
     "action": "request_url",
-    "question_to_ask": "To help diagnose this, could you share your staging URL? 🙏",
+    "question_to_ask": "Could you share a read-only link? 🙏",
     "question_type": "url_request"
   }
 }
@@ -693,7 +693,7 @@ When called with mode="validate", evaluate search results against expectations.
   "next_action": {
     "action": "ask_if_resolved",
     "reasoning": "Solution was provided. Need to check if it resolved the user's issue before proceeding to NPS.",
-    "question_to_ask": "Did this solve your problem? 😊",
+    "question_to_ask": "Let me know how it goes! 💪",
     "question_type": "resolution_check"
   }
 }
@@ -723,7 +723,7 @@ When called with mode="validate", evaluate search results against expectations.
   "next_action": {
     "action": "show_nps",
     "reasoning": "User (John) confirmed the solution worked. Perfect time to collect NPS feedback.",
-    "question_to_ask": "Awesome, glad we got that sorted! 🎉\n\nQuick question before you go:\n\n**On a scale of 0-10, how likely are you to recommend Finsweet products and support to a colleague?**\n\nJust type a number from 0 to 10.",
+    "question_to_ask": "Glad we got that sorted!\n\nQuick question: **On a scale of 0-10, how likely are you to recommend Finsweet products and support to a colleague?**",
     "question_type": "nps_request"
   }
 }
@@ -758,7 +758,7 @@ When called with mode="validate", evaluate search results against expectations.
   "next_action": {
     "action": "finalize_chat",
     "reasoning": "NPS score collected (9 - Promoter). Time to thank the user and trigger Finalize tool to send summary to Slack.",
-    "question_to_ask": "Thanks for the feedback, John! 💚\n\nWe really appreciate it. If you ever need anything else, we're here to help.\n\nTake care! 👋",
+    "question_to_ask": "Thanks for the feedback, John! Happy to help on any issue you have 💪",
     "question_type": "closing"
   }
 }
