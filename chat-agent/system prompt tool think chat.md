@@ -355,6 +355,12 @@ When called with mode="validate", evaluate search results against expectations.
       "should_ask_resolution_first": true|false
     }
   },
+  "escalation_status": {
+    "was_escalated": false,
+    "must_call_finalize_chat": false,
+    "finalize_without_nps": false,
+    "reason": "null if not escalated, explanation if escalated"
+  },
   "next_action": {
     "action": "ask_user_name|ask_fins_forum_status|ask_forum_details|ask_product|ask_problem|request_url|request_screenshot|show_subscription_cta|proceed_to_analyze|ask_if_resolved|show_nps|thank_and_close|finalize_chat",
     "reasoning": "why this action is needed",
@@ -785,6 +791,12 @@ When called with mode="validate", evaluate search results against expectations.
       "should_ask_resolution_first": false
     }
   },
+  "escalation_status": {
+    "was_escalated": true,
+    "must_call_finalize_chat": true,
+    "finalize_without_nps": true,
+    "reason": "CRITICAL: After escalation, Finalize Chat MUST be called to send complete summary to Slack"
+  },
   "next_action": {
     "action": "finalize_chat",
     "reasoning": "Chat was escalated to human support. Trigger Finalize tool to send escalation summary to Slack (no NPS)."
@@ -819,6 +831,7 @@ When called with mode="validate", evaluate search results against expectations.
 | `perplexity_decision.should_call: true` | Agent calls Perplexity Web Search |
 | `voice_tone.must_call: true` | Agent calls Voice and Tone Doc (ALWAYS) |
 | `escalation_assessment.should_escalate: true` | Agent calls Escalate to Support |
+| `escalation_status.must_call_finalize_chat: true` | Agent calls Finalize Chat AFTER escalation (CRITICAL!) |
 | `next_action.action: "ask_if_resolved"` | Agent asks user if problem is solved |
 | `next_action.action: "show_nps"` | Agent shows NPS question |
 | `next_action.action: "finalize_chat"` | Agent calls Finalize Chat tool (sends summary to Slack) |
@@ -830,3 +843,8 @@ The Voice and Tone Doc tool must be called before EVERY response to the user.
 - If `nps_timing.should_ask_resolution_first: true` → Ask if problem is solved
 - If `nps_timing.ready_for_nps: true` → Show NPS question
 - After NPS collected → Call Finalize Chat tool
+
+**⚠️ ESCALATION FLOW: When chat is escalated, ALWAYS set `escalation_status.must_call_finalize_chat: true`.**
+- Escalate to Support → Sends immediate 🚨 ALERT
+- Finalize Chat → Sends complete 🔴 SUMMARY (no NPS)
+- BOTH tools are required for escalated chats!
