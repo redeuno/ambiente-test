@@ -111,9 +111,21 @@ When called with mode="collect", assess what information has been gathered and w
 ### How to Validate:
 **Call the "Get a user in Discourse" tool with the forum username.**
 
-The username format is: `firstname.lastname` or similar (e.g., `johannes.widmer`)
-- NOT the display name ("Johannes Widmer")
-- It's the first line shown in the forum profile
+**⚠️ Username format varies - there's NO standard pattern:**
+- `johannes.widmer` (with dot)
+- `jillbascome` (no dot)
+- `john_doe123` (with underscore)
+- Any other format the user chose
+
+**How to identify the username:**
+- It's the **FIRST line** shown in the forum profile (smaller text, above the full name)
+- NOT the display name which is the second line (e.g., "Johannes Widmer", "Jill Bascome")
+
+**Example:**
+```
+jillbascome        ← This is the USERNAME (use this for API)
+Jill Bascome       ← This is the display name (NOT this)
+```
 
 ### How to Interpret the Response:
 
