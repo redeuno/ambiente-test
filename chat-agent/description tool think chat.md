@@ -241,7 +241,7 @@ User sends message
   },
   "next_action": {
     "action": "ask_user_name",
-    "question_to_ask": "Hey there! 👋 I'm Finn AI, happy to help! Before we dive in, what's your name so I can personalize our chat? 🙂"
+    "question_to_ask": "Hey there! I'm Finn AI, happy to help!\n\nWhat's your name? 🙏"
   }
 }
 ```

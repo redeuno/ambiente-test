@@ -891,7 +891,7 @@ PHASE 3: RESOLUTION & NPS
     │
     conversation_phase = "solution_provided"?
     │
-    YES → Ask: "Did this solve your problem? 😊"
+    YES → Ask: "Did this solve your problem?"
     │
     ↓
 16. User response indicates resolution?
@@ -904,7 +904,7 @@ PHASE 3: RESOLUTION & NPS
     ↓
 17. User provides NPS score (0-10)?
     │
-    YES → Thank user: "Thanks for the feedback! 💚"
+    YES → Thank user: "Thanks for the feedback! 🙏"
     │
     (User may skip NPS - that's okay)
     │

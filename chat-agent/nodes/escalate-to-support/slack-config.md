@@ -378,8 +378,8 @@ Slack Support Escalation
 
 | Campo | Source Expression |
 |-------|-------------------|
-| sessionId | `{{ $('Receive New Discourse Message').item.json.sessionId }}` |
-| category | `{{ $('Category Cache').item.json.category }}` |
+| sessionId | `{{ $json.sessionId }}` |
+| category | `{{ $json.category }}` |
 | summary | *(AI preenche)* |
 | contextCollected | *(AI preenche)* |
 | missingInfo | *(AI preenche)* |
